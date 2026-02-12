@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FADLI - Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+</head>
+<body>
+    <!-- STEP 2: Splash Screen / Loading Screen -->
+    <div id="splash-screen" class="splash-screen active">
+        <div class="splash-content">
+            <!-- Pixel Loader Animation -->
+            <div class="pixel-loader">
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+                <div class="pixel-block"></div>
+            </div>
+
+            <!-- Loading Text -->
+            <h1 class="loading-title">LOADING</h1>
+            
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-percentage" id="progressPercent">0%</div>
+            </div>
+
+            <!-- Loading Message -->
+            <p class="loading-message" id="loadingMessage">Initializing adventure...</p>
+
+            <!-- Pixel Art Character Preview -->
+            <div class="character-preview">
+                <div class="pixel-char">
+                    <div class="char-head"></div>
+                    <div class="char-body"></div>
+                    <div class="char-legs">
+                        <div class="leg"></div>
+                        <div class="leg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 1: Icon-Only Sidebar -->
+    <aside class="sidebar-minimal">
+        <nav class="nav-icons">
+            <button class="icon-btn active" data-section="home">
+                <span class="iconify" data-icon="carbon:home" data-width="28"></span>
+                <span class="tooltip">Home</span>
+            </button>
+            <button class="icon-btn" data-section="about">
+                <span class="iconify" data-icon="carbon:user" data-width="28"></span>
+                <span class="tooltip">About</span>
+            </button>
+            <button class="icon-btn" data-section="achievements">
+                <span class="iconify" data-icon="carbon:trophy" data-width="28"></span>
+                <span class="tooltip">Achievements</span>
+            </button>
+            <button class="icon-btn" data-section="skills">
+                <span class="iconify" data-icon="carbon:skill-level-advanced" data-width="28"></span>
+                <span class="tooltip">Skills</span>
+            </button>
+            <button class="icon-btn" data-section="projects">
+                <span class="iconify" data-icon="carbon:application" data-width="28"></span>
+                <span class="tooltip">Projects</span>
+            </button>
+            <button class="icon-btn" data-section="certificates">
+                <span class="iconify" data-icon="carbon:certificate" data-width="28"></span>
+                <span class="tooltip">Certificates</span>
+            </button>
+            <button class="icon-btn" data-section="contact">
+                <span class="iconify" data-icon="carbon:send-alt" data-width="28"></span>
+                <span class="tooltip">Contact</span>
+            </button>
+        </nav>
+
+        <div class="social-icons">
+            <a href="https://github.com/FadliGhafatulHijriah" target="_blank">
+                <span class="iconify" data-icon="mdi:github" data-width="24"></span>
+            </a>
+            <a href="https://www.linkedin.com/in/fadli-hijriah-aa593437b" target="_blank">
+                <span class="iconify" data-icon="mdi:linkedin" data-width="24"></span>
+            </a>
+            <a href="mailto:kunsumagayi@gmail.com">
+                <span class="iconify" data-icon="mdi:email" data-width="24"></span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-area">
+        <section id="home" class="page active">
+            <!-- STEP 3: Hero Section with Animated FADLI Name -->
+            <div class="hero-section">
+                <!-- Animated Name with Particles Inside -->
+                <div class="hero-name-container">
+                    <h1 class="hero-name">
+                        <span class="letter" data-letter="F">
+                            F
+                            <div class="letter-particles">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
+                        </span>
+                        <span class="letter" data-letter="A">
+                            A
+                            <div class="letter-particles">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
+                        </span>
+                        <span class="letter" data-letter="D">
+                            D
+                            <div class="letter-particles">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
+                        </span>
+                        <span class="letter" data-letter="L">
+                            L
+                            <div class="letter-particles">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
+                        </span>
+                        <span class="letter" data-letter="I">
+                            I
+                            <div class="letter-particles">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
+                        </span>
+                    </h1>
+                </div>
+
+                <!-- Subtitle -->
+                <div class="hero-subtitle">
+                    <p class="typing-text" id="typingText"></p>
+                </div>
+
+                <!-- Quick Info Cards -->
+                <div class="info-cards">
+                    <div class="info-card">
+                        <span class="iconify" data-icon="carbon:education" data-width="32"></span>
+                        <div>
+                            <h3>Semester 4</h3>
+                            <p>Informatics Engineering</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <span class="iconify" data-icon="carbon:code" data-width="32"></span>
+                        <div>
+                            <h3>Developer</h3>
+                            <p>Full Stack</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <span class="iconify" data-icon="carbon:location" data-width="32"></span>
+                        <div>
+                            <h3>Indonesia</h3>
+                            <p>Ready for Remote</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hero-cta">
+                    <button class="cta-btn primary" onclick="handleNavigation('about')">
+                        <span class="iconify" data-icon="carbon:arrow-right"></span>
+                        Explore My Journey
+                    </button>
+                    <button class="cta-btn secondary" onclick="handleNavigation('contact')">
+                        <span class="iconify" data-icon="carbon:send"></span>
+                        Get in Touch
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page">
+            <h1>About</h1>
+        </section>
+
+        <section id="achievements" class="page">
+            <h1>Achievements</h1>
+        </section>
+
+        <section id="skills" class="page">
+            <h1>Skills</h1>
+        </section>
+
+        <section id="projects" class="page">
+            <h1>Projects</h1>
+        </section>
+
+        <section id="certificates" class="page">
+            <h1>Certificates</h1>
+        </section>
+
+        <section id="contact" class="page">
+            <h1>Contact</h1>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>
