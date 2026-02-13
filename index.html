@@ -8,6 +8,14 @@
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </head>
 <body>
+    <!-- 3D Parallax Background Layers -->
+    <div class="parallax-bg">
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="parallax-layer layer-3"></div>
+        <div class="stars-layer"></div>
+    </div>
+
     <!-- STEP 2: Splash Screen / Loading Screen -->
     <div id="splash-screen" class="splash-screen active">
         <div class="splash-content">
@@ -80,30 +88,34 @@
                 <span class="tooltip">Contact</span>
             </button>
         </nav>
-
-        <div class="social-icons">
-            <a href="https://github.com/fadli" target="_blank">
-                <span class="iconify" data-icon="mdi:github" data-width="24"></span>
-            </a>
-            <a href="https://linkedin.com/in/fadli" target="_blank">
-                <span class="iconify" data-icon="mdi:linkedin" data-width="24"></span>
-            </a>
-            <a href="/cdn-cgi/l/email-protection#deb8bfbab2b79ebba6bfb3aeb2bbf0bdb1b3">
-                <span class="iconify" data-icon="mdi:email" data-width="24"></span>
-            </a>
-        </div>
     </aside>
+
+    <!-- Social Icons - Bottom Right Floating -->
+    <div class="social-floating">
+        <a href="https://github.com/FadliGhafatulHijriah" target="_blank" title="GitHub" class="social-link">
+            <span class="iconify" data-icon="mdi:github" data-width="22"></span>
+        </a>
+        <a href="http://www.linkedin.com/in/fadli-hijriah-aa593437b" target="_blank" title="LinkedIn" class="social-link">
+            <span class="iconify" data-icon="mdi:linkedin" data-width="22"></span>
+        </a>
+        <a href="https://instagram.com/fadl.bee" target="_blank" title="Instagram" class="social-link">
+            <span class="iconify" data-icon="mdi:instagram" data-width="22"></span>
+        </a>
+        <a href="/cdn-cgi/l/email-protection#09627c677a7c64686e687060496e64686065276a6664" title="Email" class="social-link">
+            <span class="iconify" data-icon="mdi:email" data-width="22"></span>
+        </a>
+    </div>
 
     <!-- Main Content -->
     <main class="main-area">
         <section id="home" class="page active">
             <!-- STEP 3: Hero Section with Animated FADLI Name -->
             <div class="hero-section">
-                <!-- Animated Name with Particles Inside -->
+                <!-- Animated Name with Video/Image Masking -->
                 <div class="hero-name-container">
                     <h1 class="hero-name">
-                        <span class="letter" data-letter="F">
-                            F
+                        <span class="letter letter-F" data-letter="F">
+                            <span class="letter-fill">F</span>
                             <div class="letter-particles">
                                 <div class="particle"></div>
                                 <div class="particle"></div>
@@ -112,8 +124,8 @@
                                 <div class="particle"></div>
                             </div>
                         </span>
-                        <span class="letter" data-letter="A">
-                            A
+                        <span class="letter letter-A" data-letter="A">
+                            <span class="letter-fill">A</span>
                             <div class="letter-particles">
                                 <div class="particle"></div>
                                 <div class="particle"></div>
@@ -122,8 +134,8 @@
                                 <div class="particle"></div>
                             </div>
                         </span>
-                        <span class="letter" data-letter="D">
-                            D
+                        <span class="letter letter-D" data-letter="D">
+                            <span class="letter-fill">D</span>
                             <div class="letter-particles">
                                 <div class="particle"></div>
                                 <div class="particle"></div>
@@ -132,8 +144,8 @@
                                 <div class="particle"></div>
                             </div>
                         </span>
-                        <span class="letter" data-letter="L">
-                            L
+                        <span class="letter letter-L" data-letter="L">
+                            <span class="letter-fill">L</span>
                             <div class="letter-particles">
                                 <div class="particle"></div>
                                 <div class="particle"></div>
@@ -142,8 +154,8 @@
                                 <div class="particle"></div>
                             </div>
                         </span>
-                        <span class="letter" data-letter="I">
-                            I
+                        <span class="letter letter-I" data-letter="I">
+                            <span class="letter-fill">I</span>
                             <div class="letter-particles">
                                 <div class="particle"></div>
                                 <div class="particle"></div>
@@ -229,10 +241,15 @@
         </section>
     </main>
 
-    <!-- STEP 4: Free-roaming Pixel Character -->
+    <!-- STEP 4: Free-roaming 3D Pixel Character with Arms -->
     <div id="pixelCharacter" class="pixel-character">
-        <div class="char-head"></div>
+        <div class="char-arm left-arm"></div>
+        <div class="char-head">
+            <div class="char-eye left-eye"></div>
+            <div class="char-eye right-eye"></div>
+        </div>
         <div class="char-body"></div>
+        <div class="char-arm right-arm"></div>
         <div class="char-legs">
             <div class="leg left"></div>
             <div class="leg right"></div>

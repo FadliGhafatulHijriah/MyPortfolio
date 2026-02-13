@@ -493,7 +493,25 @@ class FreeRoamingCharacter {
 // Initialize character
 let freeCharacter = null;
 
-// Update splash screen to init character
+// Parallax Background Effect
+function initParallax() {
+    const layers = document.querySelectorAll('.parallax-layer');
+    
+    document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) - 0.5;
+        const y = (e.clientY / window.innerHeight) - 0.5;
+        
+        layers.forEach((layer, index) => {
+            const speed = (index + 1) * 20;
+            const xMove = x * speed;
+            const yMove = y * speed;
+            
+            layer.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        });
+    });
+}
+
+// Update splash screen to init character and parallax
 const originalStartTyping = startTypingEffect;
 startTypingEffect = function() {
     originalStartTyping();
@@ -504,4 +522,8 @@ startTypingEffect = function() {
         console.log('🎮 Character ready! Use WASD to move, E to interact!');
         console.log('🎯 Mission: Discover all 7 elements!');
     }, 500);
+    
+    // Init parallax
+    initParallax();
+    console.log('🌌 3D Parallax background active!');
 };
