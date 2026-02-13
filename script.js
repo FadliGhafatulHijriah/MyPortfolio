@@ -89,21 +89,22 @@ function startTypingEffect() {
 
         typingElement.textContent = currentText.substring(0, charIndex);
 
-        let typeSpeed = isDeleting ? 50 : 100;
+        let typeSpeed = isDeleting ? 40 : 80; // Slower for smoother feel
 
         if (!isDeleting && charIndex === currentText.length) {
-            typeSpeed = 2000; // Pause at end
+            typeSpeed = 2500; // Longer pause at end
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             textIndex = (textIndex + 1) % texts.length;
-            typeSpeed = 500; // Pause before next text
+            typeSpeed = 800; // Longer pause before next text
         }
 
         setTimeout(type, typeSpeed);
     }
 
-    type();
+    // Start with small delay for smooth entrance
+    setTimeout(type, 500);
 }
 
 function initNavigation() {
