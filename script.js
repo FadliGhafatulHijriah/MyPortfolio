@@ -159,7 +159,7 @@ document.addEventListener('keydown', (e) => {
 
 console.log('🎮 Loading adventure...');
 
-// STEP 4: Free-roaming Pixel Character
+// STEP 4: Free-roaming Character with Missions & Interactions
 class FreeRoamingCharacter {
     constructor() {
         this.character = document.getElementById('pixelCharacter');
@@ -178,6 +178,26 @@ class FreeRoamingCharacter {
         this.keys = {};
         this.isWalking = false;
         
+        // Eye tracking
+        this.mouseX = 0;
+        this.mouseY = 0;
+        
+        // Collision detection
+        this.radius = 50; // Increased from 30 for easier interaction
+        this.nearbyElement = null;
+        
+        // Mission system
+        this.discovered = new Set();
+        this.missions = [
+            { id: 'home', selector: '.hero-name', text: 'Discover your name' },
+            { id: 'about', selector: '[data-section="about"]', text: 'Visit About section' },
+            { id: 'skills', selector: '[data-section="skills"]', text: 'Check Skills' },
+            { id: 'projects', selector: '[data-section="projects"]', text: 'Explore Projects' },
+            { id: 'contact', selector: '[data-section="contact"]', text: 'Find Contact info' },
+            { id: 'cta1', selector: '.cta-btn.primary', text: 'Touch a button' },
+            { id: 'card', selector: '.info-card', text: 'Inspect info cards' }
+        ];
+        
         this.init();
         this.updatePosition();
         this.gameLoop();
@@ -189,12 +209,24 @@ class FreeRoamingCharacter {
             const key = e.key.toLowerCase();
             this.keys[key] = true;
             this.highlightKey(key);
+            
+            // Interaction key (E)
+            if (key === 'e' && this.nearbyElement) {
+                this.interact();
+            }
         });
         
         document.addEventListener('keyup', (e) => {
             const key = e.key.toLowerCase();
             this.keys[key] = false;
             this.unhighlightKey(key);
+        });
+        
+        // Mouse tracking for eyes
+        document.addEventListener('mousemove', (e) => {
+            this.mouseX = e.clientX;
+            this.mouseY = e.clientY;
+            this.updateEyes();
         });
         
         // Window resize
@@ -247,7 +279,7 @@ class FreeRoamingCharacter {
         
         // Diagonal movement (slower)
         if (this.velocityX !== 0 && this.velocityY !== 0) {
-            this.velocityX *= 0.707; // sqrt(2)/2
+            this.velocityX *= 0.707;
             this.velocityY *= 0.707;
         }
         
@@ -255,8 +287,11 @@ class FreeRoamingCharacter {
         this.x += this.velocityX;
         this.y += this.velocityY;
         
-        // Constrain to viewport
-        this.constrainPosition();
+        // Auto-scroll viewport
+        this.autoScroll();
+        
+        // Check collisions/interactions
+        this.checkNearbyElements();
         
         // Walking animation
         if (this.isWalking) {
@@ -264,6 +299,38 @@ class FreeRoamingCharacter {
         } else {
             this.character.classList.remove('walking');
         }
+    }
+    
+    autoScroll() {
+        const scrollMargin = 200; // Increased margin for less sensitivity
+        const scrollSpeed = 3; // Reduced from 5 to 3 for smoother scroll
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset;
+        
+        // Only scroll if moving (not when standing still)
+        if (!this.isWalking) return;
+        
+        // Auto scroll up (smoother)
+        if (this.y < scrollMargin && scrollTop > 0) {
+            window.scrollBy({ 
+                top: -scrollSpeed, 
+                behavior: 'auto'
+            });
+        }
+        
+        // Auto scroll down (smoother)
+        if (this.y > viewportHeight - scrollMargin) {
+            const maxScroll = document.documentElement.scrollHeight - viewportHeight;
+            if (scrollTop < maxScroll) {
+                window.scrollBy({ 
+                    top: scrollSpeed, 
+                    behavior: 'auto'
+                });
+            }
+        }
+        
+        // Constrain after scrolling
+        this.constrainPosition();
     }
     
     constrainPosition() {
@@ -275,6 +342,140 @@ class FreeRoamingCharacter {
         if (this.x > maxX) this.x = maxX;
         if (this.y < margin) this.y = margin;
         if (this.y > maxY) this.y = maxY;
+    }
+    
+    checkNearbyElements() {
+        // Get all interactive elements
+        const elements = document.querySelectorAll('.icon-btn, .info-card, .cta-btn, .hero-name, [data-section]');
+        let closestElement = null;
+        let closestDistance = this.radius;
+        
+        // Remove all hover states
+        elements.forEach(el => el.classList.remove('character-hover'));
+        
+        // Find closest element
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const distance = Math.sqrt(
+                Math.pow(this.x - centerX, 2) + 
+                Math.pow(this.y - centerY, 2)
+            );
+            
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestElement = el;
+            }
+        });
+        
+        // Update nearby element and excited state
+        if (closestElement) {
+            closestElement.classList.add('character-hover');
+            this.nearbyElement = closestElement;
+            this.character.classList.add('excited'); // Eyes glow!
+            this.showInteractionHint(true);
+            
+            // Check for mission completion
+            this.checkMissionCompletion(closestElement);
+        } else {
+            this.nearbyElement = null;
+            this.character.classList.remove('excited');
+            this.showInteractionHint(false);
+        }
+    }
+    
+    updateEyes() {
+        // Calculate eye direction based on mouse position
+        const headRect = this.character.getBoundingClientRect();
+        const headCenterX = headRect.left + headRect.width / 2;
+        const headCenterY = headRect.top + headRect.height / 2;
+        
+        // Get angle to mouse
+        const dx = this.mouseX - headCenterX;
+        const dy = this.mouseY - headCenterY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // Limit eye movement (max 2px in each direction)
+        const maxMove = 2;
+        let eyeX = (dx / distance) * maxMove;
+        let eyeY = (dy / distance) * maxMove;
+        
+        // Clamp values
+        eyeX = Math.max(-maxMove, Math.min(maxMove, eyeX));
+        eyeY = Math.max(-maxMove, Math.min(maxMove, eyeY));
+        
+        // Apply to character
+        this.character.style.setProperty('--eye-x', eyeX + 'px');
+        this.character.style.setProperty('--eye-y', eyeY + 'px');
+    }
+    
+    checkMissionCompletion(element) {
+        this.missions.forEach(mission => {
+            if (!this.discovered.has(mission.id)) {
+                if (element.matches(mission.selector) || element.closest(mission.selector)) {
+                    this.discovered.add(mission.id);
+                    element.classList.add('discovered');
+                    this.updateMissionProgress();
+                    console.log(`✓ Mission complete: ${mission.text}`);
+                }
+            }
+        });
+    }
+    
+    updateMissionProgress() {
+        const total = this.missions.length;
+        const completed = this.discovered.size;
+        const percentage = (completed / total) * 100;
+        
+        const progressBar = document.getElementById('missionProgress');
+        const percentText = document.getElementById('missionPercent');
+        const missionText = document.getElementById('missionText');
+        
+        if (progressBar) progressBar.style.width = percentage + '%';
+        if (percentText) percentText.textContent = `${completed}/${total}`;
+        
+        if (completed === total) {
+            if (missionText) {
+                missionText.textContent = '🎉 All missions completed! You are a true explorer!';
+                missionText.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent-primary').trim();
+            }
+        } else {
+            const remaining = this.missions.filter(m => !this.discovered.has(m.id));
+            if (missionText && remaining.length > 0) {
+                missionText.textContent = `Next: ${remaining[0].text}`;
+            }
+        }
+    }
+    
+    showInteractionHint(show) {
+        const hint = document.getElementById('interactionHint');
+        if (hint) {
+            hint.style.display = show ? 'block' : 'none';
+        }
+    }
+    
+    interact() {
+        if (!this.nearbyElement) return;
+        
+        // If it's a navigation button, click it
+        if (this.nearbyElement.hasAttribute('data-section')) {
+            this.nearbyElement.click();
+        }
+        // If it's a CTA button, click it
+        else if (this.nearbyElement.classList.contains('cta-btn')) {
+            this.nearbyElement.click();
+        }
+        // Generic interaction feedback
+        else {
+            this.nearbyElement.style.animation = 'popIn 0.3s ease';
+            setTimeout(() => {
+                if (this.nearbyElement) {
+                    this.nearbyElement.style.animation = '';
+                }
+            }, 300);
+        }
     }
     
     updatePosition() {
@@ -300,6 +501,7 @@ startTypingEffect = function() {
     // Init free-roaming character
     setTimeout(() => {
         freeCharacter = new FreeRoamingCharacter();
-        console.log('🎮 Character ready! Use WASD to move anywhere!');
+        console.log('🎮 Character ready! Use WASD to move, E to interact!');
+        console.log('🎯 Mission: Discover all 7 elements!');
     }, 500);
 };
