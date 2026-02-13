@@ -3,13 +3,16 @@
 
 /* CSS Variables */
 :root {
-    --bg-dark: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-card: #252525;
-    --accent-primary: #00ff88;
-    --accent-glow: rgba(0, 255, 136, 0.3);
+    /* Modern Dark Theme - Inspired by Jesky reference */
+    --bg-dark: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-card: #151515;
+    --accent-primary: #00d9ff;
+    --accent-secondary: #0099ff;
+    --accent-glow: rgba(0, 217, 255, 0.4);
     --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
+    --text-secondary: #8a8a8a;
+    --text-muted: #5a5a5a;
     --sidebar-width: 80px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -26,6 +29,42 @@ body {
     background: var(--bg-dark);
     color: var(--text-primary);
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Starfield Background - Like reference */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent),
+        radial-gradient(1px 1px at 15% 90%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: stars 20s ease-in-out infinite;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes stars {
+    0%, 100% {
+        background-position: 0% 0%;
+        opacity: 0.3;
+    }
+    50% {
+        background-position: 100% 100%;
+        opacity: 0.6;
+    }
 }
 
 /* STEP 2: Splash Screen / Loading Screen */
@@ -35,7 +74,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    background: radial-gradient(ellipse at center, #001a33 0%, #000000 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,7 +188,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, 
         var(--accent-primary) 0%, 
-        #00cc6a 50%, 
+        var(--accent-secondary) 50%, 
         var(--accent-primary) 100%);
     background-size: 200% 100%;
     animation: shimmer 2s linear infinite;
@@ -384,11 +423,15 @@ body {
     margin-left: var(--sidebar-width);
     min-height: 100vh;
     padding: 3rem;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
 }
 
 .page {
     display: none;
     animation: fadeIn 0.5s ease;
+    overflow: visible;
 }
 
 .page.active {
@@ -447,13 +490,17 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
+    padding: 4rem 2rem 2rem 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 /* Animated FADLI Name */
 .hero-name-container {
     margin-bottom: 2rem;
     perspective: 1000px;
+    padding-top: 2rem;
+    overflow: visible;
 }
 
 .hero-name {
@@ -463,6 +510,7 @@ body {
     gap: 1rem;
     justify-content: center;
     margin-bottom: 2rem;
+    padding: 2rem 0;
 }
 
 .letter {
@@ -496,11 +544,11 @@ body {
 
 .letter:hover {
     transform: scale(1.2) rotateZ(10deg);
-    color: #00cc6a;
+    color: var(--accent-secondary);
     text-shadow: 
-        0 0 20px rgba(0, 204, 106, 0.5),
-        0 0 40px rgba(0, 204, 106, 0.5),
-        0 0 60px rgba(0, 204, 106, 0.5);
+        0 0 20px rgba(0, 153, 255, 0.6),
+        0 0 40px rgba(0, 153, 255, 0.6),
+        0 0 60px rgba(0, 153, 255, 0.6);
 }
 
 /* Particles inside Letters */
@@ -660,7 +708,7 @@ body {
 }
 
 .cta-btn.primary:hover {
-    background: #00cc6a;
+    background: var(--accent-secondary);
     transform: translateY(-3px);
     box-shadow: 0 10px 40px var(--accent-glow);
 }
@@ -679,6 +727,169 @@ body {
 
 .cta-btn .iconify {
     font-size: 1.3rem;
+}
+
+/* STEP 4: Free-roaming Pixel Character */
+.pixel-character {
+    position: fixed;
+    width: 40px;
+    height: 60px;
+    z-index: 9998;
+    pointer-events: none;
+    transition: none;
+    filter: drop-shadow(0 0 15px var(--accent-glow));
+}
+
+.char-head {
+    width: 20px;
+    height: 20px;
+    background: #ffcc99;
+    border: 2px solid var(--accent-primary);
+    margin: 0 auto 2px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.char-body {
+    width: 24px;
+    height: 20px;
+    background: #0099ff;
+    border: 2px solid var(--accent-primary);
+    margin: 0 auto 2px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.char-legs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.leg {
+    width: 8px;
+    height: 16px;
+    background: #0066cc;
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Walking animation */
+.pixel-character.walking .leg.left {
+    animation: legWalkLeft 0.3s ease-in-out infinite;
+}
+
+.pixel-character.walking .leg.right {
+    animation: legWalkRight 0.3s ease-in-out infinite;
+}
+
+@keyframes legWalkLeft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+@keyframes legWalkRight {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+}
+
+/* Minimalist Hero Layout */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Spacious Info Cards */
+.info-cards {
+    display: flex;
+    gap: 3rem;
+    margin: 4rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.info-card {
+    background: rgba(21, 21, 21, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+    min-width: 250px;
+}
+
+/* Minimalist Game Controls */
+.game-controls-hint {
+    margin-top: 3rem;
+    padding: 1.5rem 2.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.control-key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: rgba(0, 217, 255, 0.1);
+    border: 2px solid var(--accent-primary);
+    border-radius: 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: var(--transition);
+    margin: 0 0.2rem;
+}
+
+.control-key:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.control-key.pressed {
+    transform: scale(0.9);
+    background: var(--accent-primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.game-controls-hint p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Minimalist Page Layout */
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease;
+    overflow: visible;
+    padding: 2rem 0;
+}
+
+.page h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
 }
 
 /* Responsive */
@@ -768,6 +979,54 @@ body {
     .cta-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    /* Minimalist Responsive */
+    .hero-section {
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .info-cards {
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .info-card {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .game-controls-hint {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .control-key {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+
+    .pixel-character {
+        width: 30px;
+        height: 45px;
+    }
+
+    .char-head {
+        width: 15px;
+        height: 15px;
+    }
+
+    .char-body {
+        width: 18px;
+        height: 15px;
+    }
+
+    .leg {
+        width: 6px;
+        height: 12px;
     }
 }
 

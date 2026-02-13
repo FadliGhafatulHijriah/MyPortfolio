@@ -18,7 +18,7 @@ function startSplashScreen() {
         'Setting up controls...',
         'Generating terrain...',
         'Almost ready...',
-        'Welcome to the mY Adventure!'
+        'Welcome to the adventure!'
     ];
 
     let progress = 0;
@@ -70,7 +70,7 @@ function startTypingEffect() {
     const texts = [
         'Informatics Student | Tech Enthusiast',
         'Full Stack Developer | Problem Solver',
-        'Im a Freelancer | Creative Coder',
+        'Game Developer | Creative Coder',
         'Always Learning, Always Growing 🚀'
     ];
 
@@ -157,12 +157,149 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Function to handle navigation from CTA buttons
-function handleNavigation(sectionName) {
-    const targetBtn = document.querySelector(`[data-section="${sectionName}"]`);
-    if (targetBtn) {
-        targetBtn.click();
+console.log('🎮 Loading adventure...');
+
+// STEP 4: Free-roaming Pixel Character
+class FreeRoamingCharacter {
+    constructor() {
+        this.character = document.getElementById('pixelCharacter');
+        if (!this.character) return;
+        
+        // Position
+        this.x = window.innerWidth / 2;
+        this.y = window.innerHeight / 2;
+        this.speed = 5;
+        
+        // Velocity
+        this.velocityX = 0;
+        this.velocityY = 0;
+        
+        // Controls
+        this.keys = {};
+        this.isWalking = false;
+        
+        this.init();
+        this.updatePosition();
+        this.gameLoop();
+    }
+    
+    init() {
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            const key = e.key.toLowerCase();
+            this.keys[key] = true;
+            this.highlightKey(key);
+        });
+        
+        document.addEventListener('keyup', (e) => {
+            const key = e.key.toLowerCase();
+            this.keys[key] = false;
+            this.unhighlightKey(key);
+        });
+        
+        // Window resize
+        window.addEventListener('resize', () => {
+            this.constrainPosition();
+        });
+    }
+    
+    highlightKey(key) {
+        const keys = document.querySelectorAll('.control-key');
+        keys.forEach(el => {
+            if (el.textContent.toLowerCase() === key) {
+                el.classList.add('pressed');
+            }
+        });
+    }
+    
+    unhighlightKey(key) {
+        const keys = document.querySelectorAll('.control-key');
+        keys.forEach(el => {
+            if (el.textContent.toLowerCase() === key) {
+                el.classList.remove('pressed');
+            }
+        });
+    }
+    
+    update() {
+        // Reset velocity
+        this.velocityX = 0;
+        this.velocityY = 0;
+        this.isWalking = false;
+        
+        // Movement
+        if (this.keys['w']) {
+            this.velocityY = -this.speed;
+            this.isWalking = true;
+        }
+        if (this.keys['s']) {
+            this.velocityY = this.speed;
+            this.isWalking = true;
+        }
+        if (this.keys['a']) {
+            this.velocityX = -this.speed;
+            this.isWalking = true;
+        }
+        if (this.keys['d']) {
+            this.velocityX = this.speed;
+            this.isWalking = true;
+        }
+        
+        // Diagonal movement (slower)
+        if (this.velocityX !== 0 && this.velocityY !== 0) {
+            this.velocityX *= 0.707; // sqrt(2)/2
+            this.velocityY *= 0.707;
+        }
+        
+        // Update position
+        this.x += this.velocityX;
+        this.y += this.velocityY;
+        
+        // Constrain to viewport
+        this.constrainPosition();
+        
+        // Walking animation
+        if (this.isWalking) {
+            this.character.classList.add('walking');
+        } else {
+            this.character.classList.remove('walking');
+        }
+    }
+    
+    constrainPosition() {
+        const margin = 50;
+        const maxX = window.innerWidth - margin;
+        const maxY = window.innerHeight - margin;
+        
+        if (this.x < margin) this.x = margin;
+        if (this.x > maxX) this.x = maxX;
+        if (this.y < margin) this.y = margin;
+        if (this.y > maxY) this.y = maxY;
+    }
+    
+    updatePosition() {
+        this.character.style.left = this.x + 'px';
+        this.character.style.top = this.y + 'px';
+    }
+    
+    gameLoop() {
+        this.update();
+        this.updatePosition();
+        requestAnimationFrame(() => this.gameLoop());
     }
 }
 
-console.log('🎮 Loading adventure...');
+// Initialize character
+let freeCharacter = null;
+
+// Update splash screen to init character
+const originalStartTyping = startTypingEffect;
+startTypingEffect = function() {
+    originalStartTyping();
+    
+    // Init free-roaming character
+    setTimeout(() => {
+        freeCharacter = new FreeRoamingCharacter();
+        console.log('🎮 Character ready! Use WASD to move anywhere!');
+    }, 500);
+};
