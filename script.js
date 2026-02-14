@@ -742,6 +742,171 @@ window.switchLanguage = switchLanguage;
 
 /* 
 =============================================================================
+   ACHIEVEMENTS SECTION JAVASCRIPT
+   Animated timeline line that grows/shrinks based on scroll position
+=============================================================================
+*/
+
+// ===== ANIMATED TIMELINE LINE =====
+// Line connects when scrolling down, disconnects when scrolling up
+function initAnimatedTimeline() {
+    const timelineLine = document.getElementById('timelineLine');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineEnd = document.querySelector('.timeline-end');
+    const timelineContainer = document.querySelector('.timeline-container');
+    const curvePath = document.getElementById('curvePath');
+    const curveSvg = document.getElementById('timelineCurve');
+    
+    if (!timelineLine || timelineItems.length === 0) {
+        console.log('Timeline elements not found');
+        return;
+    }
+    
+    console.log(`Found ${timelineItems.length} timeline items`);
+    
+    // Generate curved path for SVG
+    function generateCurvedPath(height) {
+        if (!curvePath || !curveSvg) return;
+        
+        const centerX = 50; // Center of SVG (100px wide)
+        const segments = Math.floor(height / 100); // Create curve segment every 100px
+        let pathData = `M ${centerX} 0`; // Start at top center
+        
+        // Generate wavy path with quadratic curves
+        for (let i = 0; i < segments; i++) {
+            const y1 = (i + 0.5) * 100;
+            const y2 = (i + 1) * 100;
+            const curve = (i % 2 === 0) ? 10 : -10; // Alternate left/right curves
+            
+            // Quadratic curve: Q controlX controlY endX endY
+            pathData += ` Q ${centerX + curve} ${y1}, ${centerX} ${y2}`;
+        }
+        
+        // Final segment if height doesn't match exactly
+        const remaining = height - (segments * 100);
+        if (remaining > 0) {
+            const curve = (segments % 2 === 0) ? 10 : -10;
+            pathData += ` Q ${centerX + curve} ${height - remaining/2}, ${centerX} ${height}`;
+        }
+        
+        curvePath.setAttribute('d', pathData);
+        curveSvg.style.height = height + 'px';
+    }
+    
+    // Function to update timeline line height based on scroll
+    function updateTimelineLine() {
+        const containerRect = timelineContainer.getBoundingClientRect();
+        const containerTop = containerRect.top + window.pageYOffset;
+        const scrolled = window.pageYOffset + window.innerHeight / 2;
+        
+        // Calculate how much of the timeline should be visible
+        const relativeScroll = scrolled - containerTop;
+        
+        // Get the position of the end marker
+        let maxHeight = containerRect.height - 100; // Default to near container bottom
+        
+        if (timelineEnd) {
+            const endMarker = timelineEnd.querySelector('.timeline-marker.end');
+            if (endMarker) {
+                const endRect = endMarker.getBoundingClientRect();
+                const endTop = endRect.top + window.pageYOffset;
+                const endCenter = endTop + (endRect.height / 2);
+                maxHeight = endCenter - containerTop; // Reach exact center of end marker
+            }
+        }
+        
+        // Clamp between 0 and max height
+        let lineHeight = Math.max(0, Math.min(relativeScroll, maxHeight));
+        
+        // Apply height to line (smooth growth/shrink)
+        timelineLine.style.height = lineHeight + 'px';
+        
+        // Update curved SVG path
+        generateCurvedPath(lineHeight);
+    }
+    
+    // Function to reveal timeline items when scrolled into view
+    function revealTimelineItems() {
+        const windowHeight = window.innerHeight;
+        const triggerBottom = windowHeight * 0.8;
+        
+        timelineItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            
+            if (itemTop < triggerBottom) {
+                item.classList.add('in-view');
+            } else {
+                // Optional: Remove class when scrolling back up
+                // item.classList.remove('in-view');
+            }
+        });
+    }
+    
+    // Throttled scroll event for performance (60 FPS)
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateTimelineLine();
+                revealTimelineItems();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Initial calls
+    updateTimelineLine();
+    revealTimelineItems();
+    
+    console.log('✅ Animated timeline with curved path initialized!');
+}
+
+// ===== ACHIEVEMENT PHOTO UPLOAD =====
+// Function to add photos to timeline items
+// Usage: window.addAchievementPhoto(itemIndex, 'url.jpg', 'caption')
+function setupAchievementPhotoUpload() {
+    window.addAchievementPhoto = function(itemIndex, photoUrl, caption = '') {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        if (itemIndex < 0 || itemIndex >= timelineItems.length) {
+            console.error('Invalid timeline item index');
+            return;
+        }
+        
+        const item = timelineItems[itemIndex];
+        const placeholder = item.querySelector('.timeline-photo-placeholder');
+        
+        if (placeholder) {
+            // Replace placeholder with actual photo
+            const photoDiv = document.createElement('div');
+            photoDiv.className = 'timeline-photo';
+            photoDiv.innerHTML = `<img src="${photoUrl}" alt="${caption}">`;
+            
+            placeholder.replaceWith(photoDiv);
+            console.log(`✅ Photo added to timeline item ${itemIndex}`);
+        }
+    };
+}
+
+// ===== INITIALIZE ACHIEVEMENTS SECTION =====
+function initAchievementsSection() {
+    initAnimatedTimeline();
+    setupAchievementPhotoUpload();
+    console.log('✅ Achievements section initialized!');
+}
+
+// Export for global use
+window.initAchievementsSection = initAchievementsSection;
+
+/* 
+=============================================================================
+   END OF ACHIEVEMENTS SECTION JAVASCRIPT
+=============================================================================
+*/
+
+/* 
+=============================================================================
    END OF ABOUT SECTION JAVASCRIPT
 =============================================================================
 */

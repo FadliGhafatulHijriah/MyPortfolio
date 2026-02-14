@@ -233,7 +233,7 @@
                     
                     <div class="profile-hero">
                         <div class="profile-hero-image">
-                            <img src="profile-main.jpg" alt="Fadli Ghafatul Hijriah">
+                            <img src="./img/Main_Profil.jpg" alt="Fadli Ghafatul Hijriah">
                         </div>
                         <div class="profile-hero-content">
                             <h3 data-en="Hi there! 👋" data-id="Hai! 👋">Hi there! 👋</h3>
@@ -259,23 +259,23 @@
                     <div class="parallax-gallery" id="parallaxGallery">
                         <div class="parallax-column column-1">
                             <div class="gallery-item" data-scroll-speed="0.5">
-                                <img src="profile-photo-1.png" alt="Fadli Photo 1">
+                                <img src="./img/Profil-1.jpg" alt="Fadli Photo 1">
                             </div>
                             <div class="gallery-item" data-scroll-speed="0.8">
-                                <img src="profile-photo-2.jpg" alt="Fadli Photo 2">
+                                <img src="./img/Profil-2.jpg" alt="Fadli Photo 2">
                             </div>
                         </div>
                         <div class="parallax-column column-2">
                             <div class="gallery-item" data-scroll-speed="0.6">
-                                <img src="profile-photo-3.jpg" alt="Fadli Photo 3">
+                                <img src="./img/Profil-3.jpg" alt="Fadli Photo 3">
                             </div>
                             <div class="gallery-item" data-scroll-speed="0.9">
-                                <img src="profile-photo-4.png" alt="Fadli Photo 4">
+                                <img src="./img/Profil-4.jpg" alt="Fadli Photo 4">
                             </div>
                         </div>
                         <div class="parallax-column column-3">
                             <div class="gallery-item" data-scroll-speed="0.7">
-                                <img src="profile-photo-5.jpg" alt="Fadli Photo 5">
+                                <img src="./img/Profil-5.jpg" alt="Fadli Photo 5">
                             </div>
                         </div>
                     </div>
@@ -340,7 +340,7 @@
                 <!-- BANNER IMAGE WITH SHORT BIOGRAPHY -->
                 <div class="bio-banner">
                     <div class="banner-image-container">
-                        <img src="banner-github.png" alt="Fadli Ghafatul Hijriah - Mahasiswa IT, Content Creator, Designer, Master of Ceremony" class="banner-image">
+                        <img src="./img/Banner.png" alt="Fadli Ghafatul Hijriah - Mahasiswa IT, Content Creator, Designer, Master of Ceremony" class="banner-image">
                         <div class="banner-overlay"></div>
                     </div>
                     <div class="bio-content">
@@ -385,11 +385,24 @@
                 <div class="timeline-container">
                     <!-- Timeline Connecting Line (Animated on Scroll) -->
                     <div class="timeline-line" id="timelineLine"></div>
+                    
+                    <!-- Curved SVG Overlay for Realistic Effect -->
+                    <svg class="timeline-curve" id="timelineCurve" width="100" height="100%" style="position: absolute; left: 50%; top: 0; transform: translateX(-50%); z-index: 0; pointer-events: none; overflow: visible;">
+                        <defs>
+                            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color: rgba(0, 217, 255, 0.8); stop-opacity: 1" />
+                                <stop offset="50%" style="stop-color: rgba(0, 153, 255, 0.6); stop-opacity: 1" />
+                                <stop offset="100%" style="stop-color: rgba(0, 217, 255, 0.4); stop-opacity: 1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Path will be drawn by JavaScript -->
+                        <path id="curvePath" d="" stroke="url(#lineGradient)" stroke-width="2" fill="none" opacity="0.5" />
+                    </svg>
 
                     <!-- Achievement 1: Dicoding Certificate (Replacing YouTube) -->
                     <div class="timeline-item" data-date="2024">
                         <div class="timeline-marker">
-                            <span class="iconify" data-icon="carbon:certificate" data-width="24"></span>
+                            <span class="iconify" data-icon="carbon:certificate" data-width="40"></span>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-photo-placeholder">
@@ -413,7 +426,7 @@
                     <!-- Achievement 2: Academic Excellence - GPA 3.55 -->
                     <div class="timeline-item" data-date="Sem 1-3">
                         <div class="timeline-marker">
-                            <span class="iconify" data-icon="carbon:trophy" data-width="24"></span>
+                            <span class="iconify" data-icon="carbon:trophy" data-width="40"></span>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-photo">
@@ -436,7 +449,7 @@
                     <!-- Achievement 3: Guest Lecturer -->
                     <div class="timeline-item" data-date="Oct 2, 2024">
                         <div class="timeline-marker">
-                            <span class="iconify" data-icon="carbon:presentation" data-width="24"></span>
+                            <span class="iconify" data-icon="carbon:presentation" data-width="40"></span>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-photo">
@@ -459,7 +472,7 @@
                     <!-- Achievement 4: Master of Ceremony - TalkShow -->
                     <div class="timeline-item" data-date="Jan 25, 2025">
                         <div class="timeline-marker">
-                            <span class="iconify" data-icon="carbon:microphone" data-width="24"></span>
+                            <span class="iconify" data-icon="carbon:microphone" data-width="40"></span>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-photo">
@@ -482,7 +495,7 @@
                     <!-- Achievement 5: Fully Funded Scholarship -->
                     <div class="timeline-item" data-date="2024 - Present">
                         <div class="timeline-marker">
-                            <span class="iconify" data-icon="carbon:education" data-width="24"></span>
+                            <span class="iconify" data-icon="carbon:education" data-width="40"></span>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-photo-placeholder">
@@ -506,7 +519,7 @@
                     <!-- Achievement 6: GEMASTIK Programming Competition -->
                     <div class="timeline-item" data-date="2025">
                         <div class="timeline-marker">
-                            <span class="iconify" data-icon="carbon:code" data-width="24"></span>
+                            <span class="iconify" data-icon="carbon:code" data-width="40"></span>
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-photo-placeholder">
@@ -530,7 +543,7 @@
                     <!-- End Marker -->
                     <div class="timeline-end">
                         <div class="timeline-marker end">
-                            <span class="iconify" data-icon="carbon:continue" data-width="24"></span>
+                            <span class="iconify" data-icon="carbon:continue" data-width="40"></span>
                         </div>
                         <p data-en="Journey continues..." data-id="Perjalanan berlanjut...">Journey continues...</p>
                     </div>

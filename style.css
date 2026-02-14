@@ -2158,7 +2158,426 @@ body::after {
 
 /* 
 =============================================================================
-   END OF ABOUT SECTION
+   ACHIEVEMENTS SECTION - ANIMATED TIMELINE
+   Vertical timeline with connecting line that animates on scroll
+=============================================================================
+*/
+
+/* ===== Achievements Header ===== */
+.achievements-header {
+    text-align: center;
+    margin-bottom: 3rem; /* Reduced from 6rem for less scrolling */
+}
+
+/* ===== Timeline Container ===== */
+.timeline-container {
+    position: relative;
+    max-width: 1200px; /* Increased from 1000px for better card spacing */
+    margin: 0 auto;
+    padding: 2rem 250px; /* Horizontal padding for date badges */
+}
+
+/* ===== Animated Connecting Line ===== */
+/* This line grows/shrinks based on scroll position */
+/* Using SVG for curved, realistic line effect */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 6px;
+    height: 0; /* Will be animated by JavaScript */
+    transform: translateX(-50%);
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0; /* BEHIND markers (markers are z-index: 2) */
+    overflow: visible;
+}
+
+/* Gradient line with glow effect */
+.timeline-line::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Wavy/curved effect using pseudo-element */
+.timeline-line::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        var(--accent-primary) 0%,
+        var(--accent-secondary) 50%,
+        var(--accent-primary) 100%
+    );
+    transform: translateX(-50%);
+    opacity: 0.5;
+    animation: lineFlow 3s ease-in-out infinite;
+}
+
+/* Flowing animation for realistic effect */
+@keyframes lineFlow {
+    0%, 100% {
+        filter: blur(0px) brightness(1);
+    }
+    50% {
+        filter: blur(1px) brightness(1.2);
+    }
+}
+
+/* ===== Individual Timeline Item ===== */
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr; /* Increased center column from 80px to 100px for better spacing */
+    gap: 3rem; /* Increased gap from 2rem to push cards away from center */
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 280px;
+    align-items: start;
+}
+
+/* Fade in when scrolled into view */
+.timeline-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade in when scrolled into view */
+.timeline-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Timeline Marker (Center Circle) ===== */
+.timeline-marker {
+    grid-column: 2; /* Always in center column */
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(0, 153, 255, 0.2));
+    backdrop-filter: blur(20px);
+    border: 3px solid var(--accent-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2; /* IN FRONT of timeline line (line is z-index: 0) */
+    transition: all 0.5s ease;
+    box-shadow: 0 0 30px var(--accent-glow);
+    margin: 0 auto; /* Center in the grid column */
+}
+
+/* Icon inside marker - ensure visibility */
+.timeline-marker .iconify {
+    color: var(--accent-primary);
+    font-size: 2.5rem; /* Increased from 2rem for better visibility */
+    width: 40px !important; /* Force proper sizing */
+    height: 40px !important;
+    z-index: 3;
+    position: relative;
+    display: block;
+}
+
+/* Hover effect: Grow and glow */
+.timeline-item:hover .timeline-marker {
+    transform: scale(1.2);
+    background: var(--accent-primary);
+    box-shadow: 0 0 50px var(--accent-glow);
+}
+
+.timeline-item:hover .timeline-marker .iconify {
+    color: var(--bg-dark);
+}
+
+/* ===== Timeline Content Card ===== */
+.timeline-content {
+    grid-column: 3;
+    background: rgba(21, 21, 21, 0.6);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem; /* Reduced from 2rem */
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Fill parent height for consistency */
+}
+
+/* Alternate left/right layout - consistent positioning */
+.timeline-item:nth-child(even) .timeline-content {
+    grid-column: 1;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    grid-column: 2;
+}
+
+/* Hover: Lift and glow - reduced movement for compactness */
+.timeline-content:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-5px) scale(1.01); /* Reduced from -10px and 1.02 */
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.4);
+    background: rgba(0, 217, 255, 0.05);
+}
+
+/* ===== Photo Placeholder ===== */
+.timeline-photo-placeholder {
+    width: 100%;
+    height: 160px; /* Reduced from 200px for compactness */
+    background: rgba(0, 217, 255, 0.05);
+    border: 2px dashed rgba(0, 217, 255, 0.3);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.timeline-photo-placeholder .iconify {
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem; /* Reduced spacing */
+}
+
+.timeline-photo-placeholder p {
+    color: var(--text-secondary);
+    font-size: 0.8rem; /* Smaller text */
+}
+
+.timeline-photo-placeholder:hover {
+    background: rgba(0, 217, 255, 0.1);
+    border-color: var(--accent-primary);
+}
+
+/* Photo when uploaded - consistent height */
+.timeline-photo {
+    width: 100%;
+    height: 160px; /* Matching placeholder height */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.timeline-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.timeline-content:hover .timeline-photo img {
+    transform: scale(1.1);
+}
+
+/* ===== Content Text Styling ===== */
+.timeline-content h3 {
+    font-size: 1.3rem; /* Slightly reduced from 1.5rem */
+    color: var(--accent-primary);
+    margin-bottom: 0.4rem; /* Reduced spacing */
+    line-height: 1.3;
+}
+
+.timeline-date {
+    font-size: 0.75rem; /* Slightly smaller */
+    color: var(--text-secondary);
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 0.8rem; /* Reduced from 1rem */
+    line-height: 1.4;
+}
+
+.timeline-description {
+    color: var(--text-secondary);
+    line-height: 1.6; /* Tighter line height */
+    line-clamp: 4;
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+    font-size: 0.9rem; /* Slightly smaller */
+    flex-grow: 1; /* Fill available space */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limit to 4 lines for consistency */
+    -webkit-box-orient: vertical;
+}
+
+/* ===== Timeline Tags ===== */
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem; /* Reduced from 0.5rem */
+    margin-top: auto; /* Push to bottom of card */
+}
+
+.timeline-tags .tag {
+    padding: 0.3rem 0.8rem; /* Reduced vertical padding */
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 20px;
+    font-size: 0.7rem; /* Smaller text */
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.timeline-tags .tag:hover {
+    background: var(--accent-primary);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+}
+
+/* ===== Timeline End Marker ===== */
+.timeline-end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* End marker with pulsing animation */
+.timeline-marker.end {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(0, 153, 255, 0.3));
+    animation: pulse 2s ease-in-out infinite;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid var(--accent-primary);
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* Icon inside end marker */
+.timeline-marker.end .iconify {
+    color: var(--accent-primary);
+    font-size: 2.5rem; /* Increased for better visibility */
+    width: 40px !important;
+    height: 40px !important;
+    z-index: 3;
+    display: block;
+}
+
+.timeline-end p {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* ===== Date Badge (Optional) ===== */
+.timeline-item::before {
+    content: attr(data-date);
+    position: absolute;
+    top: 15px; /* Adjusted from 30px to align with compact card */
+    left: -180px;
+    padding: 0.4rem 0.8rem; /* Slightly more compact */
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 8px;
+    font-size: 0.7rem; /* Smaller text for consistency */
+    color: var(--text-secondary);
+    font-family: 'Press Start 2P', cursive;
+    white-space: nowrap;
+    z-index: 1;
+    line-height: 1.4;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: auto;
+    right: -180px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    /* Stack timeline vertically on smaller screens */
+    .timeline-item {
+        grid-template-columns: 100px 1fr; /* Marker on left, content on right */
+        gap: 2rem;
+    }
+    
+    .timeline-content {
+        grid-column: 2 !important; /* Always on right */
+    }
+    
+    .timeline-marker {
+        grid-column: 1 !important; /* Always on left */
+        margin: 0; /* Remove auto margin for left alignment */
+    }
+    
+    /* Move line to left side with marker */
+    .timeline-line {
+        left: 50px; /* Align with marker center */
+    }
+    
+    /* SVG curve also moves left */
+    svg.timeline-curve {
+        left: 50px !important;
+    }
+    
+    /* Hide date badges on tablet/mobile */
+    .timeline-item::before {
+        display: none;
+    }
+    
+    /* Reduce container padding */
+    .timeline-container {
+        padding: 2rem 1rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-photo-placeholder,
+    .timeline-photo {
+        height: 150px; /* Smaller on mobile */
+    }
+    
+    .timeline-marker {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .timeline-marker .iconify {
+        font-size: 2rem; /* Smaller icons on mobile */
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-line {
+        left: 30px; /* Adjust for smaller marker */
+    }
+    
+    svg.timeline-curve {
+        left: 30px !important;
+    }
+}
+
+/* 
+=============================================================================
+   END OF ACHIEVEMENTS SECTION
 =============================================================================
 */
 .section-container {
