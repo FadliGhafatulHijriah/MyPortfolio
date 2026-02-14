@@ -1658,3 +1658,962 @@ body::after {
     background: var(--accent-primary);
     color: var(--bg-dark);
 }
+/* 
+=============================================================================
+   ABOUT SECTION - PROFESSIONAL PROFILE & BIOGRAPHY
+   Contains: Introduction, Photo Gallery (Parallax), Languages, Bio Banner
+=============================================================================
+*/
+
+/* ===== Section Container - Max Width & Padding ===== */
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* ===== INTRODUCTION PROFILE SECTION ===== */
+.intro-profile {
+    margin-bottom: 6rem;
+}
+
+.intro-text {
+    margin-bottom: 3rem;
+}
+
+/* Label: "INTRODUCTION" */
+.intro-label {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+/* Title: "PROFILE" - Large gradient text */
+.intro-title {
+    font-size: 6rem;
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* ===== Profile Hero Layout - Photo + Content Side by Side ===== */
+.profile-hero {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Main profile photo container */
+.profile-hero-image {
+    width: 450px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
+    transition: transform 0.5s ease;
+}
+
+/* Hover effect: Scale up and lift */
+.profile-hero-image:hover {
+    transform: scale(1.02) translateY(-10px);
+}
+
+.profile-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Profile text content */
+.profile-hero-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-intro {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.hero-detail {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ===== PARALLAX PHOTO GALLERY SECTION ===== */
+/* Wrapper for title and gallery */
+.gallery-section {
+    margin: 6rem 0;
+    padding: 4rem 0;
+}
+
+/* Title: "I'M LEARNING INFORMATIC SKILL" */
+.gallery-title {
+    font-size: 3.5rem;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+/* 3-column grid layout for photos */
+.parallax-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Each column contains multiple photos */
+.parallax-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Individual photo item - Has parallax effect via JavaScript */
+.gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    transition: all 0.5s ease;
+    will-change: transform; /* Performance hint for browser */
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Hover: Scale up, glow, lift */
+.gallery-item:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+    transform: scale(1.05) translateY(-10px) !important;
+    z-index: 10;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Different heights for masonry layout effect */
+.column-1 .gallery-item:nth-child(1) { min-height: 400px; }
+.column-1 .gallery-item:nth-child(2) { min-height: 300px; }
+.column-2 .gallery-item:nth-child(1) { min-height: 350px; }
+.column-2 .gallery-item:nth-child(2) { min-height: 350px; }
+.column-3 .gallery-item:nth-child(1) { min-height: 450px; }
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== FAVORITE PROGRAMMING LANGUAGES SECTION ===== */
+.favorite-languages {
+    margin: 8rem 0;
+    text-align: center;
+}
+
+/* Section title with gradient */
+.languages-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.languages-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+}
+
+/* 3-column grid for language cards */
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual language card (JS, Python, C++) */
+.language-card {
+    background: rgba(21, 21, 21, 0.6);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+/* ===== Language Image - Unsplash Photos ===== */
+.language-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.language-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay with gradient and logo */
+.language-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.7), rgba(0, 153, 255, 0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    transition: all 0.5s ease;
+}
+
+/* Language logo text (JS, PY, C++) */
+.language-logo {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.language-card h3 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem;
+    padding: 0 2rem;
+    color: var(--text-primary);
+}
+
+.language-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 2rem 2rem;
+}
+
+/* ===== Different Hover Effects Per Language ===== */
+
+/* JavaScript - Yellow theme, float up */
+.language-card.hover-float:hover {
+    transform: translateY(-15px);
+    border-color: #F7DF1E;
+    box-shadow: 0 20px 50px rgba(247, 223, 30, 0.3);
+}
+
+.language-card.hover-float:hover .language-image img {
+    transform: scale(1.15);
+}
+
+.language-card.hover-float:hover .language-overlay {
+    background: linear-gradient(135deg, rgba(247, 223, 30, 0.8), rgba(255, 200, 0, 0.8));
+}
+
+/* Python - Blue/yellow theme, scale up */
+.language-card.hover-scale:hover {
+    transform: scale(1.1);
+    border-color: #FFD43B;
+    box-shadow: 0 20px 50px rgba(255, 212, 59, 0.3);
+}
+
+.language-card.hover-scale:hover .language-image img {
+    transform: scale(1.2) rotate(-3deg);
+}
+
+.language-card.hover-scale:hover .language-overlay {
+    background: linear-gradient(135deg, rgba(255, 212, 59, 0.8), rgba(48, 105, 152, 0.8));
+}
+
+/* C++ - Blue theme, glow + pulse */
+.language-card.hover-glow:hover {
+    border-color: #00599C;
+    box-shadow: 
+        0 0 40px rgba(0, 89, 156, 0.5),
+        0 20px 50px rgba(0, 89, 156, 0.3);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.language-card.hover-glow:hover .language-image img {
+    transform: scale(1.15);
+}
+
+.language-card.hover-glow:hover .language-overlay {
+    background: linear-gradient(135deg, rgba(0, 89, 156, 0.8), rgba(0, 40, 80, 0.9));
+}
+
+/* ===== BIO BANNER SECTION - GitHub Style Professional Banner ===== */
+.bio-banner {
+    margin: 8rem 0;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+}
+
+/* Banner image container - Shows full GitHub banner */
+.banner-image-container {
+    position: relative;
+    height: 450px; /* Tall enough to show full banner */
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Show full image, no crop */
+    object-position: center;
+    background: #000; /* Black letterbox background */
+}
+
+/* Gradient overlay for smooth transition to bio */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* Bio content card below banner */
+.bio-content {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(21, 21, 21, 0.9));
+    backdrop-filter: blur(20px);
+    padding: 4rem;
+    border: 2px solid var(--accent-primary);
+    border-top: 2px solid var(--accent-primary);
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    margin-top: 2rem; /* Space between banner and bio for clean look */
+}
+
+/* Animated top border line */
+.bio-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--accent-primary), 
+        var(--accent-secondary), 
+        var(--accent-primary), 
+        transparent);
+}
+
+.bio-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bio-content p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* ===== Bio Tags - IT Student, Content Creator, etc ===== */
+.bio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Individual tag with icon */
+.bio-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 25px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.bio-tag .iconify {
+    color: var(--accent-primary);
+    font-size: 1.3rem;
+}
+
+/* Hover: Fill with cyan, lift up */
+.bio-tag:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+}
+
+.bio-tag:hover .iconify {
+    color: var(--bg-dark);
+}
+
+/* ===== RESPONSIVE DESIGN - About Section ===== */
+@media (max-width: 1200px) {
+    /* Stack profile hero on smaller screens */
+    .profile-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .profile-hero-image {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    /* Stack languages vertically */
+    .languages-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Stack photo gallery */
+    .parallax-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Smaller title on mobile */
+    .intro-title {
+        font-size: 3rem;
+    }
+    
+    .profile-hero-image {
+        height: 400px;
+    }
+    
+    .languages-title {
+        font-size: 2rem;
+    }
+    
+    /* Less padding on mobile */
+    .bio-content {
+        padding: 2rem;
+    }
+    
+    /* Shorter banner on mobile */
+    .banner-image-container {
+        height: 200px;
+    }
+    
+    /* Stack bio tags vertically */
+    .bio-tags {
+        flex-direction: column;
+    }
+    
+    .bio-tag {
+        justify-content: center;
+    }
+}
+
+/* 
+=============================================================================
+   END OF ABOUT SECTION
+=============================================================================
+*/
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* INTRODUCTION PROFILE SECTION */
+.intro-profile {
+    margin-bottom: 6rem;
+}
+
+.intro-text {
+    margin-bottom: 3rem;
+}
+
+.intro-label {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.intro-title {
+    font-size: 6rem;
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Profile Hero Layout */
+.profile-hero {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.profile-hero-image {
+    width: 450px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
+    transition: transform 0.5s ease;
+}
+
+.profile-hero-image:hover {
+    transform: scale(1.02) translateY(-10px);
+}
+
+.profile-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-hero-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-intro {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.hero-detail {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* PARALLAX PHOTO GALLERY */
+.gallery-section {
+    margin: 6rem 0;
+    padding: 4rem 0;
+}
+
+.gallery-title {
+    font-size: 3.5rem;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+.parallax-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.parallax-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    transition: all 0.5s ease;
+    will-change: transform;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+    transform: scale(1.05) translateY(-10px) !important;
+    z-index: 10;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Different heights for masonry effect */
+.column-1 .gallery-item:nth-child(1) { min-height: 400px; }
+.column-1 .gallery-item:nth-child(2) { min-height: 300px; }
+.column-2 .gallery-item:nth-child(1) { min-height: 350px; }
+.column-2 .gallery-item:nth-child(2) { min-height: 350px; }
+.column-3 .gallery-item:nth-child(1) { min-height: 450px; }
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FAVORITE PROGRAMMING LANGUAGES */
+.favorite-languages {
+    margin: 8rem 0;
+    text-align: center;
+}
+
+.languages-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.languages-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.language-card {
+    background: rgba(21, 21, 21, 0.6);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+/* Language Image Container */
+.language-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.language-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.language-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.7), rgba(0, 153, 255, 0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    transition: all 0.5s ease;
+}
+
+.language-logo {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.language-card h3 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem;
+    padding: 0 2rem;
+    color: var(--text-primary);
+}
+
+.language-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 2rem 2rem;
+}
+
+/* Different hover effects for each language */
+.language-card.hover-float:hover {
+    transform: translateY(-15px);
+    border-color: #F7DF1E;
+    box-shadow: 0 20px 50px rgba(247, 223, 30, 0.3);
+}
+
+.language-card.hover-float:hover .language-image img {
+    transform: scale(1.15);
+}
+
+.language-card.hover-float:hover .language-overlay {
+    background: linear-gradient(135deg, rgba(247, 223, 30, 0.8), rgba(255, 200, 0, 0.8));
+}
+
+.language-card.hover-scale:hover {
+    transform: scale(1.1);
+    border-color: #FFD43B;
+    box-shadow: 0 20px 50px rgba(255, 212, 59, 0.3);
+}
+
+.language-card.hover-scale:hover .language-image img {
+    transform: scale(1.2) rotate(-3deg);
+}
+
+.language-card.hover-scale:hover .language-overlay {
+    background: linear-gradient(135deg, rgba(255, 212, 59, 0.8), rgba(48, 105, 152, 0.8));
+}
+
+.language-card.hover-glow:hover {
+    border-color: #00599C;
+    box-shadow: 
+        0 0 40px rgba(0, 89, 156, 0.5),
+        0 20px 50px rgba(0, 89, 156, 0.3);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.language-card.hover-glow:hover .language-image img {
+    transform: scale(1.15);
+}
+
+.language-card.hover-glow:hover .language-overlay {
+    background: linear-gradient(135deg, rgba(0, 89, 156, 0.8), rgba(0, 40, 80, 0.9));
+}
+
+/* BIO BANNER - Professional GitHub Style */
+.bio-banner {
+    margin: 8rem 0;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+}
+
+.banner-image-container {
+    position: relative;
+    height: 450px; /* Increased from 300px */
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed from cover to contain - shows full banner */
+    object-position: center;
+    background: #000; /* Black background for letterbox */
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.bio-content {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(21, 21, 21, 0.9));
+    backdrop-filter: blur(20px);
+    padding: 4rem;
+    border: 2px solid var(--accent-primary);
+    border-top: 2px solid var(--accent-primary); /* Added top border */
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    margin-top: 2rem; /* Space between banner and bio */
+}
+
+.bio-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--accent-primary), 
+        var(--accent-secondary), 
+        var(--accent-primary), 
+        transparent);
+}
+
+.bio-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bio-content p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Bio Tags */
+.bio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.bio-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 25px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.bio-tag .iconify {
+    color: var(--accent-primary);
+    font-size: 1.3rem;
+}
+
+.bio-tag:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+}
+
+.bio-tag:hover .iconify {
+    color: var(--bg-dark);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .profile-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .profile-hero-image {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .languages-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .parallax-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-title {
+        font-size: 3rem;
+    }
+    
+    .profile-hero-image {
+        height: 400px;
+    }
+    
+    .languages-title {
+        font-size: 2rem;
+    }
+    
+    .bio-content {
+        padding: 2rem;
+    }
+    
+    .banner-image-container {
+        height: 200px;
+    }
+    
+    .bio-tags {
+        flex-direction: column;
+    }
+    
+    .bio-tag {
+        justify-content: center;
+    }
+}
