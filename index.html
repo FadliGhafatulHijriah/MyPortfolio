@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FADLI GHAFATUL HIJRIAH</title>
+    <title>FADLI - Portfolio</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css-plus.css">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </head>
 <body>
@@ -106,6 +107,12 @@
         </a>
     </div>
 
+    <!-- Language Switcher - Top Right -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en" title="English">EN</button>
+        <button class="lang-btn" data-lang="id" title="Bahasa Indonesia">ID</button>
+    </div>
+
     <!-- Main Content -->
     <main class="main-area">
         <section id="home" class="page active">
@@ -185,7 +192,7 @@
                         <span class="iconify" data-icon="carbon:code" data-width="32"></span>
                         <div>
                             <h3>Developer</h3>
-                            <p>Full Stack & Designer</p>
+                            <p>Full Stack & Game Dev</p>
                         </div>
                     </div>
                     <div class="info-card">
@@ -217,7 +224,153 @@
         </section>
 
         <section id="about" class="page">
-            <h1>About</h1>
+            <div class="section-container">
+                <!-- INTRODUCTION PROFILE (like reference) -->
+                <div class="intro-profile">
+                    <div class="intro-text">
+                        <h2 class="intro-label" data-en="INTRODUCTION" data-id="PERKENALAN">INTRODUCTION</h2>
+                        <h1 class="intro-title" data-en="PROFILE" data-id="PROFIL">PROFILE</h1>
+                    </div>
+                    
+                    <div class="profile-hero">
+                        <div class="profile-hero-image">
+                            <img src="./img/Main_Profil.jpg" alt="Fadli Ghafatul Hijriah">
+                        </div>
+                        <div class="profile-hero-content">
+                            <h3 data-en="Hi there! 👋" data-id="Hai! 👋">Hi there! 👋</h3>
+                            <p class="hero-intro" data-en="My name is Fadli Ghafatul Hijriah, and I'm an Informatics Student."
+                               data-id="Nama saya Fadli Ghafatul Hijriah, dan saya adalah Mahasiswa Informatika.">
+                               My name is Fadli Ghafatul Hijriah, and I'm an Informatics Student.
+                            </p>
+                            <p class="hero-description" data-en="I blend problem-solving with cutting-edge technology, designing immersive and functional learning experiences"
+                               data-id="Saya memadukan problem-solving dengan teknologi terkini, merancang pengalaman belajar yang imersif dan fungsional">
+                               I blend problem-solving with cutting-edge technology, designing immersive and functional learning experiences
+                            </p>
+                            <p class="hero-detail" data-en="Highly motivated Informatics student with strong passion for algorithms and programming. Experienced in public speaking and teaching through MC roles and student mentoring."
+                               data-id="Mahasiswa Informatika yang termotivasi tinggi dengan passion kuat dalam algoritma dan pemrograman. Berpengalaman dalam public speaking dan mengajar melalui peran MC dan mentoring mahasiswa.">
+                               Highly motivated Informatics student with strong passion for algorithms and programming. Experienced in public speaking and teaching through MC roles and student mentoring.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARALLAX PHOTO GALLERY (like reference 2) -->
+                <div class="parallax-gallery" id="parallaxGallery">
+                    <div class="parallax-column column-1">
+                        <div class="gallery-item" data-scroll-speed="0.5">
+                            <img src="./img/Profil-1.jpg" alt="Fadli Photo 1">
+                        </div>
+                        <div class="gallery-item" data-scroll-speed="0.8">
+                            <img src="./img/Profil-2.jpg" alt="Fadli Photo 2">
+                        </div>
+                    </div>
+                    <div class="parallax-column column-2">
+                        <div class="gallery-item" data-scroll-speed="0.6">
+                            <img src="./img/Profil-3.jpg" alt="Fadli Photo 3">
+                        </div>
+                        <div class="gallery-item" data-scroll-speed="0.9">
+                            <img src="./img/Profil-4.jpg" alt="Fadli Photo 4">
+                        </div>
+                    </div>
+                    <div class="parallax-column column-3">
+                        <div class="gallery-item" data-scroll-speed="0.7">
+                            <img src="./img/Profil-5.jpg" alt="Fadli Photo 5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAVORITE PROGRAMMING LANGUAGES (like reference 3) -->
+                <div class="favorite-languages">
+                    <h2 class="languages-title" data-en="Favorite Programming Languages" data-id="Bahasa Pemrograman Favorit">Favorite Programming Languages</h2>
+                    <p class="languages-subtitle" data-en="A variety of languages that I use to design, develop, and solve problems"
+                       data-id="Berbagai bahasa yang saya gunakan untuk merancang, mengembangkan, dan menyelesaikan masalah">
+                       A variety of languages that I use to design, develop, and solve problems
+                    </p>
+                    
+                    <div class="languages-grid">
+                        <!-- JavaScript -->
+                        <div class="language-card hover-float">
+                            <div class="language-icon js-icon">
+                                <svg viewBox="0 0 128 128">
+                                    <path fill="#F7DF1E" d="M2 1v125h125V1H2zm110.5 85.5c-.4 4.4-3.1 8.1-8.3 10.9-5.2 2.9-12.6 3.7-18.4 2-6.4-2-10.8-6.8-13.1-13.1-.4-.9-.3-1.9.2-2.8.5-.8 1.4-1.2 2.3-1 .8.1 1.5.7 1.9 1.4 2.1 5.2 5.6 8.7 10.8 10.5 4.9 1.6 10.9.8 15.2-1.8 3.8-2.3 5.8-5.4 6.1-9 .3-3.7-1.3-6.9-4.4-9.1-2.8-2-6.4-3.2-9.8-4.3l-2.4-.7c-5.8-1.6-11.8-3.3-16.1-7.4-4.4-4.3-6.2-10.1-5.2-16.1 1-6.1 4.8-11 10.5-13.5 6-2.6 12.9-2.6 18.9 0 5.5 2.4 9.5 6.8 11.5 12.5.4.9.2 2-.4 2.8-.6.8-1.5 1.2-2.5 1-.9-.2-1.6-.9-2-1.7-1.8-4.5-5-7.8-9.5-9.7-4.2-1.8-9.1-1.8-13.3 0-3.8 1.6-6.4 4.9-7 8.8-.7 4.3.7 8.1 3.8 10.7 2.8 2.4 6.7 3.8 10.5 5l2.6.8c6.2 1.9 12.6 3.8 17.4 8.4 5.3 5.1 7.5 12 6.5 19.1z"/>
+                                    <path fill="#F7DF1E" d="M72.5 99.8c-5.2 0-9.4-1.7-12.4-5-1.6-1.8-2.8-4-3.4-6.4-.2-.8 0-1.6.6-2.2.6-.6 1.4-.8 2.2-.6.8.2 1.4.8 1.6 1.6.5 2 1.4 3.8 2.7 5.2 2.2 2.5 5.5 3.8 9.3 3.8 3.8 0 6.8-1.1 8.8-3.2 1.9-1.9 2.9-4.5 2.9-7.4V56.7h-12.5c-.9 0-1.7-.4-2.2-1-.5-.7-.7-1.5-.5-2.3.2-.8.8-1.4 1.6-1.7.4-.1.8-.2 1.2-.2h15.8c.9 0 1.8.4 2.3 1.1.5.7.7 1.5.5 2.3V85c0 4.4-1.6 8.3-4.5 11.2-3.1 3.1-7.5 4.6-13.2 4.6z"/>
+                                </svg>
+                            </div>
+                            <h3>JavaScript</h3>
+                            <p data-en="Dynamic web development and modern frameworks"
+                               data-id="Pengembangan web dinamis dan framework modern">
+                               Dynamic web development and modern frameworks
+                            </p>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="language-card hover-scale">
+                            <div class="language-icon python-icon">
+                                <svg viewBox="0 0 128 128">
+                                    <linearGradient id="python-a" x1="70.252%" x2="30.019%" y1="1237.476%" y2="0%"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient>
+                                    <linearGradient id="python-b" x1="69.775%" x2="29.963%" y1="1203.805%" y2="0%"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient>
+                                    <path fill="url(#python-a)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z" transform="translate(0 10.26)"/>
+                                    <path fill="url(#python-b)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z" transform="translate(0 10.26)"/>
+                                </svg>
+                            </div>
+                            <h3>Python</h3>
+                            <p data-en="Data structures, algorithms, and automation"
+                               data-id="Struktur data, algoritma, dan otomasi">
+                               Data structures, algorithms, and automation
+                            </p>
+                        </div>
+
+                        <!-- C++ -->
+                        <div class="language-card hover-glow">
+                            <div class="language-icon cpp-icon">
+                                <svg viewBox="0 0 128 128">
+                                    <path fill="#00599C" d="M117.5 33.5l.3-.2c-.6-1.1-1.5-2.1-2.4-2.6L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4l-.2.1c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c.1-.8 0-1.7-.4-2.6zM82 66.5c0 .1 0 .2-.1.3-.2.5-.5 1-.8 1.3 0 0-.1.1-.1.2-.3.4-.6.7-1 1 0 0-.1.1-.2.1-.3.2-.6.4-.9.6-.1 0-.1.1-.2.1-.3.2-.7.3-1 .4 0 0-.1 0-.1.1-.7.2-1.4.3-2.1.3H58.2c-.1 0-.2 0-.3-.1h-.1c-.3-.1-.7-.2-1-.3 0 0-.1 0-.1-.1-.3-.1-.7-.3-1-.4-.1 0-.1-.1-.2-.1-.3-.2-.6-.4-.9-.6-.1 0-.1-.1-.2-.1-.4-.3-.7-.6-1-1 0 0-.1-.1-.1-.2-.3-.3-.6-.8-.8-1.3 0-.1-.1-.2-.1-.3-.1-.3-.2-.7-.2-1.1v-.1c0-.4 0-.9.1-1.3v-.1c.1-.4.2-.8.4-1.1v-.1c.2-.3.4-.7.6-1 .1-.1.1-.1.2-.2.2-.3.5-.5.8-.8l.2-.2c.3-.2.5-.4.8-.6h.1c.3-.2.6-.3.9-.5.1 0 .2-.1.2-.1.3-.1.7-.2 1-.3h.1c.4-.1.8-.1 1.2-.2h.3c.4 0 .8 0 1.2.1h.3c.4.1.8.1 1.2.2h.1c.3.1.7.2 1 .3.1 0 .2.1.2.1.3.1.6.3.9.5h.1c.3.2.6.4.8.6l.2.2c.3.3.6.5.8.8.1.1.1.1.2.2.2.3.4.6.6 1v.1c.2.3.3.7.4 1.1v.1c.1.4.1.9.1 1.3v.1c-.1.4-.2.8-.3 1.1zm23.2-6.1c0 .1 0 .2-.1.3-.2.5-.5 1-.8 1.3 0 0-.1.1-.1.2-.3.4-.6.7-1 1 0 0-.1.1-.2.1-.3.2-.6.4-.9.6-.1 0-.1.1-.2.1-.3.2-.7.3-1 .4 0 0-.1 0-.1.1-.7.2-1.4.3-2.1.3H82.1c-.1 0-.2 0-.3-.1h-.1c-.3-.1-.7-.2-1-.3 0 0-.1 0-.1-.1-.3-.1-.7-.3-1-.4-.1 0-.1-.1-.2-.1-.3-.2-.6-.4-.9-.6-.1 0-.1-.1-.2-.1-.4-.3-.7-.6-1-1 0 0-.1-.1-.1-.2-.3-.3-.6-.8-.8-1.3 0-.1-.1-.2-.1-.3-.1-.3-.2-.7-.2-1.1v-.1c0-.4 0-.9.1-1.3v-.1c.1-.4.2-.8.4-1.1v-.1c.2-.3.4-.7.6-1 .1-.1.1-.1.2-.2.2-.3.5-.5.8-.8l.2-.2c.3-.2.5-.4.8-.6h.1c.3-.2.6-.3.9-.5.1 0 .2-.1.2-.1.3-.1.7-.2 1-.3h.1c.4-.1.8-.1 1.2-.2h.3c.4 0 .8 0 1.2.1h.3c.4.1.8.1 1.2.2h.1c.3.1.7.2 1 .3.1 0 .2.1.2.1.3.1.6.3.9.5h.1c.3.2.6.4.8.6l.2.2c.3.3.6.5.8.8.1.1.1.1.2.2.2.3.4.6.6 1v.1c.2.3.3.7.4 1.1v.1c.1.4.1.9.1 1.3v.1c-.2.4-.3.8-.4 1.1z"/>
+                                    <path fill="#004482" d="M98.5 64.7c-1.8 0-3.4-.2-4.8-.5v-9.7c1.4-.3 3-.5 4.8-.5 4.9 0 8.9 2.6 8.9 5.3s-4 5.4-8.9 5.4zm0-12.3c-2.3 0-4.3.3-5.9.8v13.2c1.6.5 3.6.8 5.9.8 6 0 10.9-3.3 10.9-7.4 0-4.1-4.9-7.4-10.9-7.4z"/>
+                                </svg>
+                            </div>
+                            <h3>C++</h3>
+                            <p data-en="Systems programming and performance optimization"
+                               data-id="Pemrograman sistem dan optimasi performa">
+                               Systems programming and performance optimization
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BANNER IMAGE WITH SHORT BIOGRAPHY -->
+                <div class="bio-banner">
+                    <div class="banner-image-container">
+                        <img src="./img/Banner.png" alt="Fadli Ghafatul Hijriah - Mahasiswa IT, Content Creator, Designer, Master of Ceremony" class="banner-image">
+                        <div class="banner-overlay"></div>
+                    </div>
+                    <div class="bio-content">
+                        <h2 data-en="Short Biography" data-id="Biografi Singkat">Short Biography</h2>
+                        <p data-en="Highly motivated Informatics student (Semester 4) at Universitas Al-Azhar Indonesia with strong passion for algorithms and programming. Experienced in public speaking and teaching through MC roles and student mentoring. Skilled in problem-solving, code analysis, and breaking down complex algorithmic concepts into digestible explanations. Eager to leverage technical knowledge and communication skills to help fellow students master Algorithm & Programming fundamentals."
+                           data-id="Mahasiswa Informatika semester 4 yang termotivasi tinggi di Universitas Al-Azhar Indonesia dengan passion kuat dalam algoritma dan pemrograman. Berpengalaman dalam public speaking dan mengajar melalui peran MC dan mentoring mahasiswa. Terampil dalam problem-solving, analisis kode, dan menjelaskan konsep algoritmik kompleks menjadi mudah dipahami. Bersemangat untuk memanfaatkan pengetahuan teknis dan kemampuan komunikasi untuk membantu sesama mahasiswa menguasai dasar-dasar Algoritma & Pemrograman.">
+                           Highly motivated Informatics student (Semester 4) at Universitas Al-Azhar Indonesia with strong passion for algorithms and programming. Experienced in public speaking and teaching through MC roles and student mentoring. Skilled in problem-solving, code analysis, and breaking down complex algorithmic concepts into digestible explanations. Eager to leverage technical knowledge and communication skills to help fellow students master Algorithm & Programming fundamentals.
+                        </p>
+                        
+                        <div class="bio-tags">
+                            <span class="bio-tag">
+                                <span class="iconify" data-icon="mdi:school"></span>
+                                <span data-en="IT Student" data-id="Mahasiswa IT">IT Student</span>
+                            </span>
+                            <span class="bio-tag">
+                                <span class="iconify" data-icon="mdi:youtube"></span>
+                                <span data-en="Content Creator" data-id="Pembuat Konten">Content Creator</span>
+                            </span>
+                            <span class="bio-tag">
+                                <span class="iconify" data-icon="mdi:palette"></span>
+                                <span>Designer</span>
+                            </span>
+                            <span class="bio-tag">
+                                <span class="iconify" data-icon="mdi:microphone"></span>
+                                <span data-en="Master of Ceremony" data-id="Pembawa Acara">Master of Ceremony</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="achievements" class="page">
@@ -277,6 +430,15 @@
         Press <span class="key-hint">E</span> to interact
     </div>
 
+    </div>
+
     <script src="./script.js"></script>
+    <script src="./js-plus.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initLanguageSwitcher === 'function') initLanguageSwitcher();
+            if (typeof initAboutSection === 'function') initAboutSection();
+        });
+    </script>
 </body>
 </html>

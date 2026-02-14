@@ -142,8 +142,13 @@ function initNavigation() {
     });
 }
 
-// Keyboard navigation (bonus feature)
+// Keyboard navigation (bonus feature) - Only arrow keys, not WASD
 document.addEventListener('keydown', (e) => {
+    // Don't interfere with WASD controls
+    if (['w', 'a', 's', 'd', 'e'].includes(e.key.toLowerCase())) {
+        return;
+    }
+    
     const navButtons = Array.from(document.querySelectorAll('.icon-btn'));
     const activeIndex = navButtons.findIndex(btn => btn.classList.contains('active'));
 
@@ -223,11 +228,19 @@ class FreeRoamingCharacter {
             this.unhighlightKey(key);
         });
         
-        // Mouse tracking for eyes
+        // Mouse tracking for eyes - throttled for performance
+        let eyeTicking = false;
         document.addEventListener('mousemove', (e) => {
             this.mouseX = e.clientX;
             this.mouseY = e.clientY;
-            this.updateEyes();
+            
+            if (!eyeTicking) {
+                window.requestAnimationFrame(() => {
+                    this.updateEyes();
+                    eyeTicking = false;
+                });
+                eyeTicking = true;
+            }
         });
         
         // Window resize
@@ -480,8 +493,8 @@ class FreeRoamingCharacter {
     }
     
     updatePosition() {
-        this.character.style.left = this.x + 'px';
-        this.character.style.top = this.y + 'px';
+        // Use translate3d for GPU acceleration
+        this.character.style.transform = `translate3d(${this.x}px, ${this.y}px, 0)`;
     }
     
     gameLoop() {
@@ -494,22 +507,46 @@ class FreeRoamingCharacter {
 // Initialize character
 let freeCharacter = null;
 
-// Parallax Background Effect
+// Parallax Background Effect - Optimized
 function initParallax() {
     const layers = document.querySelectorAll('.parallax-layer');
+    let isHome = true;
+    let ticking = false;
     
+    // Check if we're on home page
+    function checkSection() {
+        const homeSection = document.getElementById('home');
+        isHome = homeSection && homeSection.classList.contains('active');
+    }
+    
+    // Throttled mousemove for better performance
     document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth) - 0.5;
-        const y = (e.clientY / window.innerHeight) - 0.5;
-        
-        layers.forEach((layer, index) => {
-            const speed = (index + 1) * 20;
-            const xMove = x * speed;
-            const yMove = y * speed;
+        if (!ticking && !isHome) {
+            window.requestAnimationFrame(() => {
+                const x = (e.clientX / window.innerWidth) - 0.5;
+                const y = (e.clientY / window.innerHeight) - 0.5;
+                
+                layers.forEach((layer, index) => {
+                    const speed = (index + 1) * 15; // Reduced from 20
+                    const xMove = x * speed;
+                    const yMove = y * speed;
+                    
+                    layer.style.transform = `translate(${xMove}px, ${yMove}px)`;
+                });
+                
+                ticking = false;
+            });
             
-            layer.style.transform = `translate(${xMove}px, ${yMove}px)`;
-        });
+            ticking = true;
+        }
     });
+    
+    // Update section check on navigation
+    document.addEventListener('click', () => {
+        setTimeout(checkSection, 100);
+    });
+    
+    checkSection();
 }
 
 // Update splash screen to init character and parallax
