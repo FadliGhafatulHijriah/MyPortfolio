@@ -233,7 +233,7 @@
                     
                     <div class="profile-hero">
                         <div class="profile-hero-image">
-                            <img src="./img/Main_Profil.jpg" alt="Fadli Ghafatul Hijriah">
+                            <img src="profile-main.jpg" alt="Fadli Ghafatul Hijriah">
                         </div>
                         <div class="profile-hero-content">
                             <h3 data-en="Hi there! 👋" data-id="Hai! 👋">Hi there! 👋</h3>
@@ -259,23 +259,23 @@
                     <div class="parallax-gallery" id="parallaxGallery">
                         <div class="parallax-column column-1">
                             <div class="gallery-item" data-scroll-speed="0.5">
-                                <img src="./img/Profil-1.jpg" alt="Fadli Photo 1">
+                                <img src="profile-photo-1.png" alt="Fadli Photo 1">
                             </div>
                             <div class="gallery-item" data-scroll-speed="0.8">
-                                <img src="./img/Profil-2.jpg" alt="Fadli Photo 2">
+                                <img src="profile-photo-2.jpg" alt="Fadli Photo 2">
                             </div>
                         </div>
                         <div class="parallax-column column-2">
                             <div class="gallery-item" data-scroll-speed="0.6">
-                                <img src="./img/Profil-3.jpg" alt="Fadli Photo 3">
+                                <img src="profile-photo-3.jpg" alt="Fadli Photo 3">
                             </div>
                             <div class="gallery-item" data-scroll-speed="0.9">
-                                <img src="./img/Profil-4.jpg" alt="Fadli Photo 4">
+                                <img src="profile-photo-4.png" alt="Fadli Photo 4">
                             </div>
                         </div>
                         <div class="parallax-column column-3">
                             <div class="gallery-item" data-scroll-speed="0.7">
-                                <img src="./img/Profil-5.jpg" alt="Fadli Photo 5">
+                                <img src="profile-photo-5.jpg" alt="Fadli Photo 5">
                             </div>
                         </div>
                     </div>
@@ -340,7 +340,7 @@
                 <!-- BANNER IMAGE WITH SHORT BIOGRAPHY -->
                 <div class="bio-banner">
                     <div class="banner-image-container">
-                        <img src="./img/Banner.png" alt="Fadli Ghafatul Hijriah - Mahasiswa IT, Content Creator, Designer, Master of Ceremony" class="banner-image">
+                        <img src="banner-github.png" alt="Fadli Ghafatul Hijriah - Mahasiswa IT, Content Creator, Designer, Master of Ceremony" class="banner-image">
                         <div class="banner-overlay"></div>
                     </div>
                     <div class="bio-content">
@@ -374,7 +374,168 @@
         </section>
 
         <section id="achievements" class="page">
-            <h1>Achievements</h1>
+            <div class="section-container">
+                <!-- Section Header -->
+                <div class="achievements-header">
+                    <h1 class="section-title" data-en="Achievements & Milestones" data-id="Pencapaian & Milestone">Achievements & Milestones</h1>
+                    <p class="section-subtitle" data-en="My journey and accomplishments" data-id="Perjalanan dan prestasi saya">My journey and accomplishments</p>
+                </div>
+
+                <!-- Animated Timeline -->
+                <div class="timeline-container">
+                    <!-- Timeline Connecting Line (Animated on Scroll) -->
+                    <div class="timeline-line" id="timelineLine"></div>
+
+                    <!-- Achievement 1: Dicoding Certificate (Replacing YouTube) -->
+                    <div class="timeline-item" data-date="2024">
+                        <div class="timeline-marker">
+                            <span class="iconify" data-icon="carbon:certificate" data-width="24"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-photo-placeholder">
+                                <span class="iconify" data-icon="carbon:image" data-width="48"></span>
+                                <p data-en="Dicoding certificate documentation" data-id="Dokumentasi sertifikat Dicoding">Dicoding certificate documentation</p>
+                            </div>
+                            <h3 data-en="Dicoding Certification" data-id="Sertifikasi Dicoding">Dicoding Certification</h3>
+                            <p class="timeline-date">2024</p>
+                            <p class="timeline-description" data-en="Completed professional certification program in programming and software development from Dicoding Indonesia" 
+                               data-id="Menyelesaikan program sertifikasi profesional dalam pemrograman dan pengembangan perangkat lunak dari Dicoding Indonesia">
+                               Completed professional certification program in programming and software development from Dicoding Indonesia
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">Professional Certificate</span>
+                                <span class="tag">Programming</span>
+                                <span class="tag">Dicoding</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 2: Academic Excellence - GPA 3.55 -->
+                    <div class="timeline-item" data-date="Sem 1-3">
+                        <div class="timeline-marker">
+                            <span class="iconify" data-icon="carbon:trophy" data-width="24"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-photo">
+                                <img src="achievement-transcript.jpg" alt="Academic Transcript" onerror="this.parentElement.innerHTML='<div class=&quot;timeline-photo-placeholder&quot;><span class=&quot;iconify&quot; data-icon=&quot;carbon:document&quot; data-width=&quot;48&quot;></span><p>Official Transcript<br>GPA: 3.55/4.00</p></div>'">
+                            </div>
+                            <h3 data-en="Academic Excellence - GPA 3.55/4.00" data-id="Prestasi Akademik - IPK 3.55/4.00">Academic Excellence - GPA 3.55/4.00</h3>
+                            <p class="timeline-date">Semester 1-3 | 2024-2025</p>
+                            <p class="timeline-description" data-en="Achieved excellent academic performance with cumulative GPA of 3.55/4.00 across 64 credit hours. Notable achievements: Algorithm & Programming (A), Data Structures (A), Database Fundamentals (A), Computer Organization & Architecture (A)" 
+                               data-id="Mencapai prestasi akademik excellent dengan IPK kumulatif 3.55/4.00 dari 64 SKS. Pencapaian notable: Algoritma & Pemrograman (A), Struktur Data (A), Basis Data (A), Organisasi & Arsitektur Komputer (A)">
+                               Achieved excellent academic performance with cumulative GPA of 3.55/4.00 across 64 credit hours. Notable achievements: Algorithm & Programming (A), Data Structures (A), Computer Organization & Architecture (A)
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">Algorithm & Programming (A)</span>
+                                <span class="tag">Data Structures (A)</span>
+                                <span class="tag">64 SKS Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 3: Guest Lecturer -->
+                    <div class="timeline-item" data-date="Oct 2, 2024">
+                        <div class="timeline-marker">
+                            <span class="iconify" data-icon="carbon:presentation" data-width="24"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-photo">
+                                <img src="achievement-guest-lecturer.jpg" alt="Guest Lecturer at SMK ISLAMIYAH CIPUTAT">
+                            </div>
+                            <h3 data-en="Guest Lecturer" data-id="Dosen Tamu">Guest Lecturer</h3>
+                            <p class="timeline-date">SMK ISLAMIYAH CIPUTAT | October 2, 2024</p>
+                            <p class="timeline-description" data-en="Delivered presentation on 'Digital Revolution & Planning' to 25+ vocational students, facilitated Q&A session and shared insights about technology trends and digital literacy" 
+                               data-id="Memberikan presentasi tentang 'Revolusi Digital & Perencanaan' kepada 25+ siswa kejuruan, memfasilitasi sesi tanya-jawab dan berbagi wawasan tentang tren teknologi dan literasi digital">
+                               Delivered presentation on "Digital Revolution & Planning" to 25+ vocational students, facilitated Q&A session and shared insights about technology trends and digital literacy
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">Public Speaking</span>
+                                <span class="tag">Teaching</span>
+                                <span class="tag">Digital Literacy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 4: Master of Ceremony - TalkShow -->
+                    <div class="timeline-item" data-date="Jan 25, 2025">
+                        <div class="timeline-marker">
+                            <span class="iconify" data-icon="carbon:microphone" data-width="24"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-photo">
+                                <img src="achievement-mc-talkshow.png" alt="MC at TalkShow Webinar">
+                            </div>
+                            <h3 data-en="Master of Ceremony - Webinar TalkShow" data-id="Pembawa Acara - Webinar TalkShow">Master of Ceremony - Webinar TalkShow</h3>
+                            <p class="timeline-date">Webinar: Membangun Budaya Akademik Bebas Plagiarisme | January 25, 2025</p>
+                            <p class="timeline-description" data-en="Moderated webinar 'Building Academic Culture Free from Plagiarism' featuring speakers from various institutions. Demonstrated professional hosting skills and audience engagement in academic discussion" 
+                               data-id="Memoderasi webinar 'Membangun Budaya Akademik Bebas Plagiarisme' dengan pembicara dari berbagai institusi. Menunjukkan kemampuan hosting profesional dan engagement audiens dalam diskusi akademik">
+                               Moderated webinar "Building Academic Culture Free from Plagiarism" featuring speakers from various institutions. Demonstrated professional hosting skills and audience engagement in academic discussion
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">Master of Ceremony</span>
+                                <span class="tag">Webinar Moderator</span>
+                                <span class="tag">Academic Event</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 5: Fully Funded Scholarship -->
+                    <div class="timeline-item" data-date="2024 - Present">
+                        <div class="timeline-marker">
+                            <span class="iconify" data-icon="carbon:education" data-width="24"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-photo-placeholder">
+                                <span class="iconify" data-icon="carbon:image" data-width="48"></span>
+                                <p data-en="Scholarship documentation" data-id="Dokumentasi beasiswa">Scholarship documentation</p>
+                            </div>
+                            <h3 data-en="Fully Funded Scholarship Recipient" data-id="Penerima Beasiswa Fully Funded">Fully Funded Scholarship Recipient</h3>
+                            <p class="timeline-date">Universitas Al-Azhar Indonesia | 2024 - Present</p>
+                            <p class="timeline-description" data-en="Awarded fully funded scholarship covering full tuition and academic expenses at Universitas Al-Azhar Indonesia based on academic merit and potential. This recognition supports continuous learning and development in Informatics Engineering" 
+                               data-id="Menerima beasiswa fully funded yang mencakup biaya kuliah penuh dan biaya akademik di Universitas Al-Azhar Indonesia berdasarkan prestasi akademik dan potensi. Pengakuan ini mendukung pembelajaran dan pengembangan berkelanjutan dalam Teknik Informatika">
+                               Awarded fully funded scholarship covering full tuition and academic expenses at Universitas Al-Azhar Indonesia based on academic merit and potential. This recognition supports continuous learning and development in Informatics Engineering
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">Full Scholarship</span>
+                                <span class="tag">Academic Merit</span>
+                                <span class="tag">UAI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 6: GEMASTIK Programming Competition -->
+                    <div class="timeline-item" data-date="2025">
+                        <div class="timeline-marker">
+                            <span class="iconify" data-icon="carbon:code" data-width="24"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-photo-placeholder">
+                                <span class="iconify" data-icon="carbon:image" data-width="48"></span>
+                                <p data-en="GEMASTIK competition documentation" data-id="Dokumentasi kompetisi GEMASTIK">GEMASTIK competition documentation</p>
+                            </div>
+                            <h3 data-en="GEMASTIK Programming Competition Participant" data-id="Peserta Kompetisi Pemrograman GEMASTIK">GEMASTIK Programming Competition Participant</h3>
+                            <p class="timeline-date">Telkom University | 2025</p>
+                            <p class="timeline-description" data-en="Participated in GEMASTIK (Pagelaran Mahasiswa Nasional Bidang Teknologi Informasi dan Komunikasi), Indonesia's prestigious national ICT competition for students. Competed in programming category, demonstrating problem-solving skills and algorithmic thinking" 
+                               data-id="Berpartisipasi dalam GEMASTIK (Pagelaran Mahasiswa Nasional Bidang Teknologi Informasi dan Komunikasi), kompetisi nasional ICT bergengsi Indonesia untuk mahasiswa. Berkompetisi dalam kategori pemrograman, menunjukkan kemampuan problem-solving dan pemikiran algoritmik">
+                               Participated in GEMASTIK (Pagelaran Mahasiswa Nasional Bidang Teknologi Informasi dan Komunikasi), Indonesia's prestigious national ICT competition for students. Competed in programming category, demonstrating problem-solving skills and algorithmic thinking
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">National Competition</span>
+                                <span class="tag">Programming</span>
+                                <span class="tag">GEMASTIK 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Marker -->
+                    <div class="timeline-end">
+                        <div class="timeline-marker end">
+                            <span class="iconify" data-icon="carbon:continue" data-width="24"></span>
+                        </div>
+                        <p data-en="Journey continues..." data-id="Perjalanan berlanjut...">Journey continues...</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="skills" class="page">
@@ -438,6 +599,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof initLanguageSwitcher === 'function') initLanguageSwitcher();
             if (typeof initAboutSection === 'function') initAboutSection();
+            if (typeof initAchievementsSection === 'function') initAchievementsSection();
         });
     </script>
 </body>
