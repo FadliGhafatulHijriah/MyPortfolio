@@ -138,12 +138,7 @@
 
     <!-- Theme & Language Controls Top Right -->
     <div class="top-controls">
-      <!-- Theme Switcher Button -->
-      <button
-        id="themeToggleBtn"
-        class="theme-toggle-btn"
-        title="Toggle Theme (Sunny / Pirate Night)"
-      >
+      <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Theme">
         <span
           class="iconify theme-icon-dark"
           data-icon="carbon:compass"
@@ -156,7 +151,6 @@
         ></span>
       </button>
 
-      <!-- Language Switcher -->
       <div class="language-switcher">
         <button class="lang-btn active" data-lang="en" title="English">
           EN
@@ -185,7 +179,6 @@
               <span class="word word-hijriah">
                 <span class="letter"><span class="letter-fill">H</span></span>
 
-                <!-- Slot Huruf 'I' Pertama pada 'HIJRIAH' -->
                 <span class="letter letter-character-slot">
                   <div class="walker-rig">
                     <div class="limb leg-back">
@@ -299,7 +292,10 @@
                 <img src="./img/Profil.jpg" alt="Fadli Ghafatul Hijriah" />
               </div>
               <div class="profile-hero-content">
-                <h3>Akulah yang akan menjadi seorang Ai Engineer</h3>
+                <h3>
+                  Akulah yang akan menjadi seorang Ai Engineer dan kapten dari
+                  perusahaan saya sendiri di masa depan
+                </h3>
                 <p class="hero-intro">Fadli Ghafatul Hijriah</p>
                 <p
                   class="hero-description"
@@ -322,47 +318,131 @@
             </div>
           </div>
 
-          <!-- PERJALANAN INFORMATIKA SAYA -->
-          <div class="gallery-section">
+          <!-- INSTAGRAM STORY STYLE CAROUSEL: PERJALANAN INFORMATIKA SAYA -->
+          <div class="story-section">
             <h2
-              class="gallery-title"
+              class="story-title"
               data-en="MY INFORMATICS VOYAGE"
               data-id="PERJALANAN INFORMATIKA SAYA"
             >
               PERJALANAN INFORMATIKA SAYA
             </h2>
-            <div class="parallax-gallery" id="parallaxGallery">
-              <div class="parallax-column column-1">
-                <div class="gallery-item" data-scroll-speed="0.5">
-                  <img
-                    src="./img/grafik-ipk.png"
-                    alt="Fadli Learning Session 1"
-                  />
+
+            <div class="story-card-wrapper">
+              <!-- Indikator Progress Story Bar -->
+              <div class="story-bars-container" id="storyBars">
+                <div class="story-bar active">
+                  <div class="story-progress"></div>
                 </div>
-                <div class="gallery-item" data-scroll-speed="0.8">
-                  <img
-                    src="./img/Ngajar_asistan.jpeg"
-                    alt="Fadli Learning Session 2"
-                  />
-                </div>
+                <div class="story-bar"><div class="story-progress"></div></div>
+                <div class="story-bar"><div class="story-progress"></div></div>
+                <div class="story-bar"><div class="story-progress"></div></div>
+                <div class="story-bar"><div class="story-progress"></div></div>
               </div>
-              <div class="parallax-column column-2">
-                <div class="gallery-item" data-scroll-speed="0.6">
-                  <img src="./img/MC.jpeg" alt="Fadli Teaching & MC" />
-                </div>
-                <div class="gallery-item" data-scroll-speed="0.9">
-                  <img
-                    src="./img/Project-PKM.png"
-                    alt="Fadli Project Development"
-                  />
-                </div>
-              </div>
-              <div class="parallax-column column-3">
-                <div class="gallery-item" data-scroll-speed="0.7">
+
+              <!-- Tombol Navigasi Panah Kiri/Kanan -->
+              <button
+                class="story-nav-btn prev-btn"
+                id="prevStoryBtn"
+                title="Previous Story"
+              >
+                ‹
+              </button>
+              <button
+                class="story-nav-btn next-btn"
+                id="nextStoryBtn"
+                title="Next Story"
+              >
+                ›
+              </button>
+
+              <!-- Item Slide Story -->
+              <div class="story-slides-container" id="storySlides">
+                <!-- Story 1 -->
+                <div class="story-slide active">
                   <img
                     src="./img/Rapat_asisten.jpeg"
-                    alt="Fadli Campus Activity"
+                    alt="Aktivitas Lab & Algoritma"
                   />
+                  <div class="story-caption-overlay">
+                    <span class="story-badge">Praktikum & Lab</span>
+                    <h3>Sesi Algoritma & Pemrograman</h3>
+                    <p>
+                      Eksplorasi konsep dasar algoritma, logika pemrograman, dan
+                      struktur data di laboratorium komputer.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="story-slide">
+                  <img
+                    src="./img/Project_seller-compilance.png"
+                    alt="Analisis Data & AI"
+                  />
+                  <div class="story-caption-overlay">
+                    <span class="story-badge">Data Science</span>
+                    <h3>Riset & Model Machine Learning</h3>
+                    <p>
+                      Mengembangkan model klasifikasi Deep Learning dengan
+                      arstitektur IndoBERT untuk analisis kepatuhan dan bahan
+                      terlarang pada toko digital, guna mencegah seller
+                      terblokir/take down dari e-commerce dengan faktor seller
+                      yang kurang literasi dalam regulasi BPOM
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="story-slide">
+                  <img
+                    src="./img/Ngajar_asistan.jpeg"
+                    src="./img/MC.jpeg"
+                    alt="Mengajar & Public Speaking"
+                  />
+                  <div class="story-caption-overlay">
+                    <span class="story-badge">Asisten Praktikum</span>
+                    <h3>Mentoring & Public Speaking</h3>
+                    <p>
+                      Membimbing adik tingkat dalam pemahaman koding praktis
+                      serta menjadi Master of Ceremony acara jurusan.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-slide">
+                  <img
+                    src="./img/Project_seller-compilance.png"
+                    style="width: 100%; height: auto"
+                    alt="Pengembangan Aplikasi Web"
+                  />
+                  <div class="story-caption-overlay">
+                    <span class="story-badge">Full Stack Dev</span>
+                    <h3>Pengembangan Aplikasi & API</h3>
+                    <p>
+                      Membangun antarmuka interaktif dan arsitektur backend
+                      menggunakan FastAPI dan Next.js.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-slide">
+                  <img
+                    src="./img/grafik-ipk.png"
+                    alt="Kolaborasi Kampus"
+                    style="width: 100%; height: auto"
+                  />
+                  <div class="story-caption-overlay">
+                    <span class="story-badge">Kegiatan Kampus</span>
+                    <h3>Kolaborasi Organisasi & Tim</h3>
+                    <p>
+                      Memperoleh track record IPK 3.58/4.00 dari 88 SKS,
+                      berpartisipasi dalam GEMASTIK XVIII, dan memimpin tim PKM
+                      Smart Gate.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -507,6 +587,7 @@
               </div>
             </div>
 
+            <!-- PENCAPAIAN DENGAN BUKTI GAMBAR TRANSKRIP & IPK 3.58 -->
             <div class="timeline-item" data-date="Sem 1-5">
               <div class="timeline-marker">
                 <span
@@ -517,11 +598,14 @@
               </div>
               <div class="timeline-content">
                 <div class="timeline-photo">
-                  <img src="./img/Profil-1.jpg" alt="Academic Transcript" />
+                  <img
+                    src="./img/Profil-1.jpg"
+                    alt="Transkrip Nilai IPK 3.58"
+                  />
                 </div>
                 <h3
-                  data-en="Academic Excellence - GPA 3.54/4.00"
-                  data-id="Prestasi Akademik - IPK 3.54/4.00"
+                  data-en="Academic Excellence - GPA 3.58/4.00"
+                  data-id="Prestasi Akademik - IPK 3.58/4.00"
                 >
                   Academic Excellence - GPA 3.58/4.00
                 </h3>
@@ -536,7 +620,7 @@
                   Data Science, and Software Engineering.
                 </p>
                 <div class="timeline-tags">
-                  <span class="tag">GPA 3.58</span>
+                  <span class="tag">GPA 3.58</span
                   ><span class="tag">Data Science (A)</span
                   ><span class="tag">Software Engineering (A)</span>
                 </div>

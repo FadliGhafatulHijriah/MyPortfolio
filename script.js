@@ -5,8 +5,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   startSplashScreen();
   initThemeToggle();
+  initInstagramStory();
   if (typeof initLanguageSwitcher === "function") initLanguageSwitcher();
-  if (typeof initAboutSection === "function") initAboutSection();
   if (typeof initAchievementsSection === "function") initAchievementsSection();
 });
 
@@ -15,7 +15,6 @@ function initThemeToggle() {
   const themeBtn = document.getElementById("themeToggleBtn");
   if (!themeBtn) return;
 
-  // Load saved theme or default to dark
   const savedTheme = localStorage.getItem("portfolio-theme") || "theme-dark";
   document.body.className = savedTheme;
 
@@ -30,6 +29,68 @@ function initThemeToggle() {
       console.log("🏴‍☠️ Switched to Pirate Night Theme (Dark Mode)");
     }
   });
+}
+
+// ===== INSTAGRAM STORY CAROUSEL LOGIC =====
+function initInstagramStory() {
+  const slides = document.querySelectorAll(".story-slide");
+  const bars = document.querySelectorAll(".story-bar");
+  const prevBtn = document.getElementById("prevStoryBtn");
+  const nextBtn = document.getElementById("nextStoryBtn");
+
+  if (slides.length === 0) return;
+
+  let currentIndex = 0;
+  let storyTimer = null;
+  const storyDuration = 4000; // 4 Detik per story slide
+
+  function showStory(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    currentIndex = index;
+
+    // Reset slides & bars
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentIndex);
+    });
+
+    bars.forEach((bar, i) => {
+      const progress = bar.querySelector(".story-progress");
+      bar.classList.remove("active");
+      if (i < currentIndex) {
+        progress.style.width = "100%";
+      } else if (i === currentIndex) {
+        progress.style.width = "0%";
+        setTimeout(() => {
+          progress.style.width = "100%";
+        }, 20);
+      } else {
+        progress.style.width = "0%";
+      }
+    });
+
+    // Restart timer
+    clearInterval(storyTimer);
+    storyTimer = setInterval(() => {
+      showStory(currentIndex + 1);
+    }, storyDuration);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      showStory(currentIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      showStory(currentIndex + 1);
+    });
+  }
+
+  // Start Story Auto Play
+  showStory(0);
 }
 
 // ===== Splash Screen Loading & Character Progress =====
@@ -100,16 +161,13 @@ function startSplashScreen() {
   }, 120);
 }
 
+// Memulai Animasi Hero Tepat Setelah Splash Screen Tutup
 function triggerHeroAnimation() {
-  const walkerRig = document.querySelector(".walker-rig");
-  const frontPhoto = document.querySelector(".front-view-photo");
-
-  if (walkerRig && frontPhoto) {
-    walkerRig.style.animation = "none";
-    frontPhoto.style.animation = "none";
-    void walkerRig.offsetWidth;
-    walkerRig.style.animation = "";
-    frontPhoto.style.animation = "";
+  const heroName = document.querySelector(".hero-name");
+  if (heroName) {
+    heroName.classList.remove("animated");
+    void heroName.offsetWidth; // Trigger Reflow
+    heroName.classList.add("animated");
   }
 }
 
@@ -220,44 +278,7 @@ function switchLanguage(lang) {
   });
 }
 
-// ===== ABOUT & ACHIEVEMENTS FEATURES =====
-function initAboutSection() {
-  initParallaxScroll();
-}
-
-function initParallaxScroll() {
-  const galleryItems = document.querySelectorAll(
-    ".gallery-item[data-scroll-speed]",
-  );
-  if (galleryItems.length === 0) return;
-
-  function updateParallax() {
-    const scrolled =
-      window.pageYOffset ||
-      window.scrollY ||
-      document.documentElement.scrollTop;
-    galleryItems.forEach((item) => {
-      const speed = parseFloat(item.getAttribute("data-scroll-speed")) || 0.5;
-      const rect = item.getBoundingClientRect();
-      const itemTop = rect.top + scrolled;
-      const yPos = (scrolled - itemTop) * speed * 0.3;
-      item.style.transform = `translateY(${yPos}px)`;
-    });
-  }
-
-  let ticking = false;
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateParallax();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-  updateParallax();
-}
-
+// ===== ACHIEVEMENTS TIMELINE =====
 function initAchievementsSection() {
   const timelineItems = document.querySelectorAll(".timeline-item");
 
@@ -275,6 +296,5 @@ function initAchievementsSection() {
 }
 
 window.initLanguageSwitcher = initLanguageSwitcher;
-window.initAboutSection = initAboutSection;
 window.initAchievementsSection = initAchievementsSection;
 window.switchLanguage = switchLanguage;
