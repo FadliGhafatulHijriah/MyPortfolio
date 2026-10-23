@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   startSplashScreen();
   initThemeToggle();
   initInstagramStory();
+  initNavigation();
+  initHamburgerMenu(); // <--- Tambahkan baris ini
+  initScrollAnimations();
   if (typeof initLanguageSwitcher === "function") initLanguageSwitcher();
   if (typeof initAchievementsSection === "function") initAchievementsSection();
 });
@@ -218,22 +221,124 @@ function startTypingEffect() {
 // ===== Navigation =====
 function initNavigation() {
   const navButtons = document.querySelectorAll(".icon-btn");
-  const pages = document.querySelectorAll(".page");
+  const sections = document.querySelectorAll(".page-section");
 
+  if (navButtons.length === 0 || sections.length === 0) return;
+
+  // 1. Klik navbar untuk melakukan smooth scroll dengan memperhitungkan tinggi navbar atas
   navButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const targetSection = btn.getAttribute("data-section");
+      const targetSectionId = btn.getAttribute("data-section");
+      const targetSection = document.getElementById(targetSectionId || "");
 
-      navButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+      if (targetSection) {
+        // Sesuaikan angka ini jika tinggi navbar Anda ingin lebih/kurang (misal: 85px - 90px)
+        const navbarHeight = 90;
+        const elementPosition =
+          targetSection.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
 
-      pages.forEach((page) => page.classList.remove("active"));
-
-      const targetPage = document.getElementById(targetSection);
-      if (targetPage) targetPage.classList.add("active");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
     });
+  });
+
+  // 2. Scroll Spy: Tombol sidebar menyala otomatis sesuai posisi layar saat di-scroll
+  window.addEventListener("scroll", () => {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
+        navButtons.forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.getAttribute("data-section") === sectionId) {
+            btn.classList.add("active");
+          }
+        });
+      }
+    });
+  });
+}
+
+// ===== Hamburger Menu Logic for Mobile =====
+function initHamburgerMenu() {
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const topNavbar = document.getElementById("topNavbar");
+
+  if (!hamburgerBtn || !topNavbar) return;
+
+  // Toggle buka/tutup menu saat tombol hamburger diklik
+  hamburgerBtn.addEventListener("click", (event) => {
+    event.stopPropagation(); // Mencegah event bubbling ke document
+    topNavbar.classList.toggle("mobile-open");
+    
+    const iconSpan = hamburgerBtn.querySelector(".iconify");
+    if (topNavbar.classList.contains("mobile-open")) {
+      iconSpan.setAttribute("data-icon", "carbon:close");
+    } else {
+      iconSpan.setAttribute("data-icon", "carbon:menu");
+    }
+  });
+
+  // Tutup menu saat salah satu link/tombol di dalam menu diklik
+  const navButtons = topNavbar.querySelectorAll(".icon-btn");
+  navButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      topNavbar.classList.remove("mobile-open");
+      const iconSpan = hamburgerBtn.querySelector(".iconify");
+      if (iconSpan) {
+        iconSpan.setAttribute("data-icon", "carbon:menu");
+      }
+    });
+  });
+
+  // Tutup menu otomatis ketika pengguna mengklik di luar area hamburger & navbar
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = topNavbar.contains(event.target);
+    const isClickOnButton = hamburgerBtn.contains(event.target);
+
+    if (topNavbar.classList.contains("mobile-open") && !isClickInsideMenu && !isClickOnButton) {
+      topNavbar.classList.remove("mobile-open");
+      const iconSpan = hamburgerBtn.querySelector(".iconify");
+      if (iconSpan) {
+        iconSpan.setAttribute("data-icon", "carbon:menu");
+      }
+    }
+  });
+}
+
+// ===== Scroll Animation: Smooth Fade-In & Fade-Out Observer =====
+function initScrollAnimations() {
+  const sections = document.querySelectorAll(".page-section");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "-10% 0px -10% 0px", // Memicu sedikit sebelum elemen masuk penuh ke layar
+    threshold: 0.15,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view"); // Muncul perlahan saat di-scroll ke bawah
+      } else {
+        entry.target.classList.remove("in-view"); // Menghilang halus saat di-scroll ke atas/keluar layar
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => {
+    observer.observe(section);
   });
 }
 

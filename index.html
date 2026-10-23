@@ -20,17 +20,17 @@
           <div id="splashWalker" class="splash-walker" style="left: 0%">
             <div class="splash-walker-rig">
               <div class="splash-limb splash-leg-back">
-                <img src="./img/POV-kanan.png" alt="Leg Back" />
+                <img src="./img/kaki-kiri.png" alt="Leg Back" />
               </div>
               <div class="splash-limb splash-torso">
-                <img src="./img/POV-kanan.png" alt="Torso" />
+                <img src="./img/karakter-badan.png" alt="Torso" />
               </div>
               <div class="splash-limb splash-leg-front">
-                <img src="./img/POV-kanan.png" alt="Leg Front" />
+                <img src="./img/karakter-kaki-depan.png" alt="Leg Front" />
               </div>
             </div>
             <img
-              src="./img/POV-depan.png"
+              src="./img/karakter-front.png"
               alt="Splash Front"
               class="splash-front-photo"
             />
@@ -51,59 +51,40 @@
       </div>
     </div>
 
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar-minimal">
-      <nav class="nav-icons">
+    <!-- Top Navigation Bar & Mobile Header -->
+    <header class="top-navbar-container">
+      <div class="mobile-header-bar">
+        <!-- Tombol Hamburger di Kanan Atas (Tanpa Kotak Pembungkus, Efek Hover Warna Saja) -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Menu">
+          <span class="iconify" data-icon="carbon:menu" data-width="28"></span>
+        </button>
+      </div>
+
+      <!-- Navigasi Menu Utama -->
+      <nav class="top-navbar" id="topNavbar">
         <button class="icon-btn active" data-section="home">
-          <span class="iconify" data-icon="carbon:home" data-width="24"></span>
-          <span class="tooltip">Home</span>
+          <span>Home</span>
         </button>
         <button class="icon-btn" data-section="about">
-          <span class="iconify" data-icon="carbon:user" data-width="24"></span>
-          <span class="tooltip">About</span>
+          <span>About</span>
         </button>
         <button class="icon-btn" data-section="achievements">
-          <span
-            class="iconify"
-            data-icon="carbon:trophy"
-            data-width="24"
-          ></span>
-          <span class="tooltip">Achievements</span>
+          <span>Achievements</span>
         </button>
         <button class="icon-btn" data-section="skills">
-          <span
-            class="iconify"
-            data-icon="carbon:skill-level-advanced"
-            data-width="24"
-          ></span>
-          <span class="tooltip">Skills</span>
+          <span>Skills</span>
         </button>
         <button class="icon-btn" data-section="projects">
-          <span
-            class="iconify"
-            data-icon="carbon:application"
-            data-width="24"
-          ></span>
-          <span class="tooltip">Projects</span>
+          <span>Projects</span>
         </button>
         <button class="icon-btn" data-section="certificates">
-          <span
-            class="iconify"
-            data-icon="carbon:certificate"
-            data-width="24"
-          ></span>
-          <span class="tooltip">Certificates</span>
+          <span>Certificates</span>
         </button>
         <button class="icon-btn" data-section="contact">
-          <span
-            class="iconify"
-            data-icon="carbon:send-alt"
-            data-width="24"
-          ></span>
-          <span class="tooltip">Contact</span>
+          <span>Contact</span>
         </button>
       </nav>
-    </aside>
+    </header>
 
     <!-- Social Links Floating -->
     <div class="social-floating">
@@ -164,7 +145,7 @@
     <!-- Main Content Area -->
     <main class="main-area">
       <!-- HOME SECTION -->
-      <section id="home" class="page active">
+      <section id="home" class="page-section">
         <div class="hero-section">
           <div class="hero-name-container">
             <h1 class="hero-name">
@@ -182,17 +163,20 @@
                 <span class="letter letter-character-slot">
                   <div class="walker-rig">
                     <div class="limb leg-back">
-                      <img src="./img/POV-kanan.png" alt="Leg Back" />
+                      <img src="./img/kaki-kiri.png" alt="Leg Back" />
                     </div>
                     <div class="limb torso">
-                      <img src="./img/POV-kanan.png" alt="Torso" />
+                      <img src="./img/karakter-badan.png" alt="Torso" />
                     </div>
                     <div class="limb leg-front">
-                      <img src="./img/POV-kanan.png" alt="Leg Front" />
+                      <img
+                        src="./img/karakter-kaki-depan.png"
+                        alt="Leg Front"
+                      />
                     </div>
                   </div>
                   <img
-                    src="./img/POV-depan.png"
+                    src="./img/karakter-front.png"
                     alt="Fadli Hijriah Depan"
                     class="front-view-photo"
                   />
@@ -212,49 +196,15 @@
             <p class="typing-text" id="typingText"></p>
           </div>
 
-          <div class="info-cards">
-            <div class="info-card">
-              <span
-                class="iconify"
-                data-icon="carbon:education"
-                data-width="32"
-              ></span>
-              <div>
-                <h3>Semester 5</h3>
-                <p>Informatics Engineering</p>
-              </div>
-            </div>
-            <div class="info-card">
-              <span
-                class="iconify"
-                data-icon="carbon:machine-learning-model"
-                data-width="32"
-              ></span>
-              <div>
-                <h3>AI & Data Science</h3>
-                <p>ML & Deep Learning Specialist</p>
-              </div>
-            </div>
-            <div class="info-card">
-              <span
-                class="iconify"
-                data-icon="carbon:location"
-                data-width="32"
-              ></span>
-              <div>
-                <h3>Jakarta Timur</h3>
-                <p>Indonesia</p>
-              </div>
-            </div>
-          </div>
+          <!-- 3 Kotak Info / Cards telah dihapus sesuai permintaan -->
 
           <div class="hero-cta">
             <button
               class="cta-btn primary"
               onclick="
                 document
-                  .querySelector('[data-section=&quot;about&quot;]')
-                  .click()
+                  .getElementById('about')
+                  .scrollIntoView({ behavior: 'smooth' })
               "
             >
               <span class="iconify" data-icon="carbon:compass"></span>
@@ -264,8 +214,8 @@
               class="cta-btn secondary"
               onclick="
                 document
-                  .querySelector('[data-section=&quot;contact&quot;]')
-                  .click()
+                  .getElementById('contact')
+                  .scrollIntoView({ behavior: 'smooth' })
               "
             >
               <span class="iconify" data-icon="carbon:send"></span>
@@ -276,7 +226,7 @@
       </section>
 
       <!-- ABOUT SECTION -->
-      <section id="about" class="page">
+      <section id="about" class="page-section">
         <div class="section-container">
           <div class="intro-profile">
             <h1
@@ -495,7 +445,7 @@
       </section>
 
       <!-- ACHIEVEMENTS & MILESTONES -->
-      <section id="achievements" class="page">
+      <section id="achievements" class="page-section">
         <div class="section-container">
           <div class="achievements-header">
             <h1
@@ -685,7 +635,7 @@
       </section>
 
       <!-- SKILLS SECTION -->
-      <section id="skills" class="page">
+      <section id="skills" class="page-section">
         <div class="section-container">
           <h1 class="section-title">Technical Skills</h1>
           <p class="section-subtitle">
@@ -757,7 +707,7 @@
       </section>
 
       <!-- PROJECTS SECTION -->
-      <section id="projects" class="page">
+      <section id="projects" class="page-section">
         <div class="section-container">
           <h1 class="section-title">Featured Projects</h1>
           <p class="section-subtitle">
@@ -812,7 +762,7 @@
       </section>
 
       <!-- CERTIFICATES SECTION -->
-      <section id="certificates" class="page">
+      <section id="certificates" class="page-section">
         <div class="section-container">
           <h1 class="section-title">Certifications & Bounties</h1>
           <p class="section-subtitle">
@@ -932,7 +882,7 @@
       </section>
 
       <!-- CONTACT SECTION -->
-      <section id="contact" class="page">
+      <section id="contact" class="page-section">
         <div class="section-container">
           <h1
             class="section-title"
@@ -991,8 +941,8 @@
                   ></span>
                   <div>
                     <strong>WhatsApp / Phone</strong>
-                    <a href="https://wa.me/628953803216" target="_blank"
-                      >+62 895-3803-216</a
+                    <a href="https://wa.me/6289531803216" target="_blank"
+                      >+62 895-3180-3216</a
                     >
                   </div>
                 </div>
