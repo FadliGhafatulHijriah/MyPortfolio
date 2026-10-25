@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   startSplashScreen();
   initThemeToggle();
   initInstagramStory();
+  initVoyageMarquee();
+  initAchievementsBoard();
   initNavigation();
   initHamburgerMenu(); // <--- Tambahkan baris ini
   initScrollAnimations();
@@ -218,6 +220,121 @@ function startTypingEffect() {
   setTimeout(type, 500);
 }
 
+// ===== VOYAGE MARQUEE =====
+// ===== VOYAGE MARQUEE =====
+function initVoyageMarquee() {
+  const track = document.getElementById("voyageTrack");
+  const modal = document.getElementById("voyageModal");
+  if (!track || !modal) return;
+
+  // 1. Tambah selotip di setiap kartu asli
+  const originals = Array.from(track.children);
+  originals.forEach((card) => {
+    card.insertAdjacentHTML("afterbegin", '<span class="voyage-tape"></span>');
+  });
+
+  // 2. Gandakan kartu secukupnya supaya barisan selalu penuh
+  const setWidth = track.offsetWidth || 1;
+  const needed = Math.max(window.screen.width, track.parentElement.offsetWidth);
+  const half = Math.max(1, Math.ceil(needed / setWidth));
+  for (let i = 0; i < half * 2 - 1; i++) {
+    originals.forEach((card) => {
+      track.appendChild(card.cloneNode(true));
+    });
+  }
+
+  // 3. Kecepatan gerak (piksel per detik), ubah angka ini kalau mau
+  const speed = 40;
+  track.style.animationDuration = (half * setWidth) / speed + "s";
+
+  // 4. Atur kemiringan dan posisi tiap kartu mengikuti urutan kartu asli
+  const tilts = [-3, 2, -1.5, 3, -2, 1.5];
+  const lifts = [12, -14, 6, -6, 10, -10];
+  Array.from(track.children).forEach((card, index) => {
+    const pos = (index % originals.length) % tilts.length;
+    card.style.setProperty("--tilt", tilts[pos] + "deg");
+    card.style.setProperty("--lift", lifts[pos] + "px");
+  });
+
+  // 5. Jendela detail saat kartu diklik
+  const img = document.getElementById("voyageModalImg");
+  const badge = document.getElementById("voyageModalBadge");
+  const title = document.getElementById("voyageModalTitle");
+  const desc = document.getElementById("voyageModalDesc");
+
+  track.addEventListener("click", (e) => {
+    const card = e.target.closest(".voyage-card");
+    if (!card) return;
+    img.src = card.querySelector("img").src;
+    badge.textContent = card.querySelector(".story-badge").textContent;
+    title.textContent = card.querySelector("h3").textContent;
+    desc.textContent = card.querySelector("p").textContent;
+    modal.classList.add("open");
+  });
+
+  function closeModal() {
+    modal.classList.remove("open");
+  }
+
+  document.getElementById("voyageModalClose").addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+}
+
+// ===== ACHIEVEMENTS BOARD =====
+function initAchievementsBoard() {
+  // 1. Filter kartu
+  const buttons = document.querySelectorAll(".ach-filter");
+  const cards = document.querySelectorAll(".ach-card");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+      buttons.forEach((b) => b.classList.toggle("active", b === btn));
+      cards.forEach((card) => {
+        const show =
+          filter === "all" || card.getAttribute("data-category") === filter;
+        card.classList.toggle("hide", !show);
+      });
+    });
+  });
+
+  // 2. Angka berhitung naik saat terlihat di layar
+  const stats = document.querySelector(".ach-stats");
+  if (!stats) return;
+
+  function countUp(el) {
+    const target = parseFloat(el.getAttribute("data-count"));
+    const decimals = parseInt(el.getAttribute("data-decimals") || "0");
+    const duration = 1200;
+    const start = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = (target * progress).toFixed(decimals);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          stats.querySelectorAll(".ach-stat-num").forEach(countUp);
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.4 },
+  );
+  observer.observe(stats);
+}
+
 // ===== Navigation =====
 function initNavigation() {
   const navButtons = document.querySelectorAll(".icon-btn");
@@ -324,7 +441,7 @@ function initScrollAnimations() {
   const observerOptions = {
     root: null,
     rootMargin: "-10% 0px -10% 0px", // Memicu sedikit sebelum elemen masuk penuh ke layar
-    threshold: 0.15,
+    threshold: 0,
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -373,6 +490,8 @@ function initLanguageSwitcher() {
       btn.classList.add("active");
     });
   });
+
+  switchLanguage(currentLang);
 }
 
 function switchLanguage(lang) {

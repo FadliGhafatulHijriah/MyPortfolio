@@ -20,17 +20,20 @@
           <div id="splashWalker" class="splash-walker" style="left: 0%">
             <div class="splash-walker-rig">
               <div class="splash-limb splash-leg-back">
-                <img src="./img/kaki-kiri.png" alt="Leg Back" />
+                <img src="./assets/img/kaki-kiri.png" alt="Leg Back" />
               </div>
               <div class="splash-limb splash-torso">
-                <img src="./img/karakter-badan.png" alt="Torso" />
+                <img src="./assets/img/karakter-badan.png" alt="Torso" />
               </div>
               <div class="splash-limb splash-leg-front">
-                <img src="./img/karakter-kaki-depan.png" alt="Leg Front" />
+                <img
+                  src="./assets/img/karakter-kaki-depan.png"
+                  alt="Leg Front"
+                />
               </div>
             </div>
             <img
-              src="./img/karakter-front.png"
+              src="./assets/img/karakter-front.png"
               alt="Splash Front"
               class="splash-front-photo"
             />
@@ -55,7 +58,11 @@
     <header class="top-navbar-container">
       <div class="mobile-header-bar">
         <!-- Tombol Hamburger di Kanan Atas (Tanpa Kotak Pembungkus, Efek Hover Warna Saja) -->
-        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Menu">
+        <button
+          class="hamburger-btn"
+          id="hamburgerBtn"
+          aria-label="Toggle Menu"
+        >
           <span class="iconify" data-icon="carbon:menu" data-width="28"></span>
         </button>
       </div>
@@ -163,20 +170,20 @@
                 <span class="letter letter-character-slot">
                   <div class="walker-rig">
                     <div class="limb leg-back">
-                      <img src="./img/kaki-kiri.png" alt="Leg Back" />
+                      <img src="./assets/img/kaki-kiri.png" alt="Leg Back" />
                     </div>
                     <div class="limb torso">
-                      <img src="./img/karakter-badan.png" alt="Torso" />
+                      <img src="./assets/img/karakter-badan.png" alt="Torso" />
                     </div>
                     <div class="limb leg-front">
                       <img
-                        src="./img/karakter-kaki-depan.png"
+                        src="./assets/img/karakter-kaki-depan.png"
                         alt="Leg Front"
                       />
                     </div>
                   </div>
                   <img
-                    src="./img/karakter-front.png"
+                    src="./assets/img/karakter-front.png"
                     alt="Fadli Hijriah Depan"
                     class="front-view-photo"
                   />
@@ -239,30 +246,35 @@
 
             <div class="profile-hero">
               <div class="profile-hero-image">
-                <img src="./img/Profil.jpg" alt="Fadli Ghafatul Hijriah" />
+                <img
+                  src="./assets/img/Profil.jpg"
+                  alt="Fadli Ghafatul Hijriah"
+                />
               </div>
               <div class="profile-hero-content">
-                <h3>
-                  Akulah yang akan menjadi seorang Ai Engineer dan kapten dari
-                  perusahaan saya sendiri di masa depan
+                <h3
+                  data-en="Informatics student who builds AI from data to application"
+                  data-id="Mahasiswa Informatika yang membangun AI dari data sampai aplikasi"
+                >
+                  Mahasiswa Informatika fokus di bidang membangun model AI &
+                  Full Stack Development.
                 </h3>
                 <p class="hero-intro">Fadli Ghafatul Hijriah</p>
                 <p
                   class="hero-description"
-                  data-en="Navigating through Data Science, Machine Learning, and Intelligent Software."
-                  data-id="Mengarungi Data Science, Machine Learning, dan Perangkat Lunak Cerdas."
-                >
-                  Navigating through Data Science, Machine Learning, and
-                  Intelligent Software.
-                </p>
+                  data-en="besides being a student, I am also a teaching assistant for algorithm programming and Probability & Statistics. Since the second semester, I have been participating in competitions, hoping to achieve results, but haven't succeeded yet 😅."
+                  data-id="Selain menjadi mahasiswa, saya juga seorang asisten praktikum algoritma pemrogramman dan Probabilitas & Statistika. dari semester dua saya selalu mengikuti kompetisi sampe sekarang berharap tapi belum menuahkan hasil hehehe 😅."
+                ></p>
                 <p
                   class="hero-detail"
-                  data-en="Informatics student (Semester 5) with hands-on experience developing Deep Learning models (0.96+ F1-Score) and backend frameworks including FastAPI, Next.js, and Pydantic AI."
-                  data-id="Mahasiswa Informatika Semester 5 dengan pengalaman praktis mengembangkan model Deep Learning (F1-Score 0.96+) serta framework backend seperti FastAPI, Next.js, dan Pydantic AI."
+                  data-en="semester 5 at Universitas Al Azhar Indonesia, maintaining a scholarship with a GPA of 3.58. My waste classification model achieved a Macro F1-Score of 0.9664. I am also a practicum assistant, PKM Smart Gate team leader, and GEMASTIK XVIII participant. Currently seeking an internship in AI/ML engineering."
+                  data-id="Semester 5 di Universitas Al Azhar Indonesia, mempertahankan beasiswa dengan IPK 3,58. Model klasifikasi sampah saya mencapai Macro F1-Score 0,9664. Saya juga asisten praktikum, ketua tim PKM Smart Gate, dan peserta GEMASTIK XVIII. Sedang mencari magang di bidang AI/ML engineering."
                 >
-                  Informatics student (Semester 5) with hands-on experience
-                  developing Deep Learning models (0.96+ F1-Score) and backend
-                  frameworks including FastAPI, Next.js, and Pydantic AI.
+                  Semester 5 di Universitas Al Azhar Indonesia, IPK 3,58. Model
+                  klasifikasi sampah saya mencapai Macro F1-Score 0,9664. Saya
+                  juga asisten praktikum, ketua tim PKM Smart Gate, dan peserta
+                  GEMASTIK XVIII. Sedang mencari magang di bidang AI/ML
+                  engineering & Web Developer.
                 </p>
               </div>
             </div>
@@ -278,43 +290,14 @@
               PERJALANAN INFORMATIKA SAYA
             </h2>
 
-            <div class="story-card-wrapper">
-              <!-- Indikator Progress Story Bar -->
-              <div class="story-bars-container" id="storyBars">
-                <div class="story-bar active">
-                  <div class="story-progress"></div>
-                </div>
-                <div class="story-bar"><div class="story-progress"></div></div>
-                <div class="story-bar"><div class="story-progress"></div></div>
-                <div class="story-bar"><div class="story-progress"></div></div>
-                <div class="story-bar"><div class="story-progress"></div></div>
-              </div>
-
-              <!-- Tombol Navigasi Panah Kiri/Kanan -->
-              <button
-                class="story-nav-btn prev-btn"
-                id="prevStoryBtn"
-                title="Previous Story"
-              >
-                ‹
-              </button>
-              <button
-                class="story-nav-btn next-btn"
-                id="nextStoryBtn"
-                title="Next Story"
-              >
-                ›
-              </button>
-
-              <!-- Item Slide Story -->
-              <div class="story-slides-container" id="storySlides">
-                <!-- Story 1 -->
-                <div class="story-slide active">
+            <div class="voyage-marquee">
+              <div class="voyage-track" id="voyageTrack">
+                <div class="voyage-card">
                   <img
-                    src="./img/Rapat_asisten.jpeg"
+                    src="./assets/img/Rapat_asisten.jpeg"
                     alt="Aktivitas Lab & Algoritma"
                   />
-                  <div class="story-caption-overlay">
+                  <div class="voyage-info">
                     <span class="story-badge">Praktikum & Lab</span>
                     <h3>Sesi Algoritma & Pemrograman</h3>
                     <p>
@@ -324,33 +307,29 @@
                   </div>
                 </div>
 
-                <!-- Story 2 -->
-                <div class="story-slide">
+                <div class="voyage-card">
                   <img
-                    src="./img/Project_seller-compilance.png"
-                    alt="Analisis Data & AI"
+                    src="./assets/img/MC.png"
+                    alt="Moderator Webinar Anti Plagiarisme"
                   />
-                  <div class="story-caption-overlay">
-                    <span class="story-badge">Data Science</span>
-                    <h3>Riset & Model Machine Learning</h3>
+                  <div class="voyage-info">
+                    <span class="story-badge">Public Speaking</span>
+                    <h3>Moderator Webinar Anti Plagiarisme</h3>
                     <p>
-                      Mengembangkan model klasifikasi Deep Learning dengan
-                      arstitektur IndoBERT untuk analisis kepatuhan dan bahan
-                      terlarang pada toko digital, guna mencegah seller
-                      terblokir/take down dari e-commerce dengan faktor seller
-                      yang kurang literasi dalam regulasi BPOM
+                      Menjadi moderator webinar "Membangun Budaya Akademik Bebas
+                      Plagiarisme" pada 14 Juni 2025 bersama narasumber Rifda
+                      Jilan Syahidah, S.Hum. Acara diselenggarakan oleh
+                      Kemahasiswaan Universitas Al Azhar Indonesia.
                     </p>
                   </div>
                 </div>
 
-                <!-- Story 3 -->
-                <div class="story-slide">
+                <div class="voyage-card">
                   <img
-                    src="./img/Ngajar_asistan.jpeg"
-                    src="./img/MC.jpeg"
+                    src="./assets/img/Ngajar_asistan.jpeg"
                     alt="Mengajar & Public Speaking"
                   />
-                  <div class="story-caption-overlay">
+                  <div class="voyage-info">
                     <span class="story-badge">Asisten Praktikum</span>
                     <h3>Mentoring & Public Speaking</h3>
                     <p>
@@ -360,37 +339,36 @@
                   </div>
                 </div>
 
-                <!-- Story 4 -->
-                <div class="story-slide">
+                <div class="voyage-card">
                   <img
-                    src="./img/Project_seller-compilance.png"
-                    style="width: 100%; height: auto"
-                    alt="Pengembangan Aplikasi Web"
+                    src="./assets/img/Now-Asprak.png"
+                    alt="Asisten Praktikum Probabilitas dan Statistik"
                   />
-                  <div class="story-caption-overlay">
-                    <span class="story-badge">Full Stack Dev</span>
-                    <h3>Pengembangan Aplikasi & API</h3>
+                  <div class="voyage-info">
+                    <span class="story-badge">Asisten Praktikum</span>
+                    <h3>Asisten Praktikum Probabilitas & Statistik</h3>
                     <p>
-                      Membangun antarmuka interaktif dan arsitektur backend
-                      menggunakan FastAPI dan Next.js.
+                      Dipercaya menjadi asisten praktikum mata kuliah
+                      Probabilitas dan Statistik di bawah dosen pengampu Tri Aji
+                      Nugroho, S.T., M.T. Praktikum berjalan setiap hari Rabu
+                      untuk kelas Reguler dan Hybrid.
                     </p>
                   </div>
                 </div>
 
-                <!-- Story 5 -->
-                <div class="story-slide">
+                <div class="voyage-card">
                   <img
-                    src="./img/grafik-ipk.png"
-                    alt="Kolaborasi Kampus"
-                    style="width: 100%; height: auto"
+                    src="./assets/img/Hobi-musik.png"
+                    alt="Tampil bermusik bersama band di UAI 2026"
+                    style="object-position: 25% center"
                   />
-                  <div class="story-caption-overlay">
-                    <span class="story-badge">Kegiatan Kampus</span>
-                    <h3>Kolaborasi Organisasi & Tim</h3>
+                  <div class="voyage-info">
+                    <span class="story-badge">Hobi Musik</span>
+                    <h3>Saya Lumayan mirip guitaris band changtuters</h3>
                     <p>
-                      Memperoleh track record IPK 3.58/4.00 dari 88 SKS,
-                      berpartisipasi dalam GEMASTIK XVIII, dan memimpin tim PKM
-                      Smart Gate.
+                      Dari SD hobi saya dan keluarga saya itu bermusik. Di foto
+                      ini saya tampil bersama teman-teman band di panggung acara
+                      UAI 2026.
                     </p>
                   </div>
                 </div>
@@ -402,7 +380,7 @@
           <div class="bio-banner">
             <div class="banner-image-container">
               <img
-                src="./img/Banner.png"
+                src="./assets/img/Banner.png"
                 alt="Fadli Hijriah Banner"
                 class="banner-image"
               />
@@ -410,13 +388,14 @@
             <div class="bio-content">
               <h2>Short Biography</h2>
               <p
-                data-en="Informatics student (Semester 5) at Universitas Al-Azhar Indonesia with strong technical problem-solving skills, academic leadership, teaching experience as a Practicum Assistant, and public speaking abilities."
-                data-id="Mahasiswa Informatika (Semester 5) di Universitas Al-Azhar Indonesia dengan kemampuan problem-solving teknis, kepemimpinan akademik, pengalaman mengajar sebagai Asisten Praktikum, serta kemampuan public speaking."
+                data-en="Informatics student (Semester 5) at Universitas Al-Azhar Indonesia with strong technical problem-solving skills, interested in AI/ML and full stack development (frontend and backend), with teaching experience as a Practicum Assistant and public speaking abilities."
+                data-id="Mahasiswa Informatika (Semester 5) di Universitas Al-Azhar Indonesia dengan kemampuan problem-solving teknis, berminat di AI/ML dan pengembangan full stack (frontend dan backend), dengan pengalaman mengajar sebagai Asisten Praktikum serta kemampuan public speaking."
               >
-                Informatics student (Semester 5) at Universitas Al-Azhar
-                Indonesia with strong technical problem-solving skills, academic
-                leadership, teaching experience as a Practicum Assistant, and
-                public speaking abilities.
+                Mahasiswa Informatika (Semester 5) di Universitas Al-Azhar
+                Indonesia dengan kemampuan problem-solving teknis, berminat di
+                AI/ML dan pengembangan full stack (frontend dan backend), dengan
+                pengalaman mengajar sebagai Asisten Praktikum serta kemampuan
+                public speaking.
               </p>
               <div class="bio-tags">
                 <span class="bio-tag"
@@ -433,6 +412,21 @@
                     data-icon="carbon:machine-learning-model"
                   ></span
                   ><span>AI & ML Specialist</span></span
+                >
+                <span class="bio-tag"
+                  ><span
+                    class="iconify"
+                    data-icon="carbon:application-web"
+                  ></span
+                  ><span>Full Stack Developer</span></span
+                >
+                <span class="bio-tag"
+                  ><span class="iconify" data-icon="carbon:laptop"></span
+                  ><span>Frontend</span></span
+                >
+                <span class="bio-tag"
+                  ><span class="iconify" data-icon="carbon:server"></span
+                  ><span>Backend</span></span
                 >
                 <span class="bio-tag"
                   ><span class="iconify" data-icon="mdi:microphone"></span
@@ -464,172 +458,340 @@
             </p>
           </div>
 
-          <div class="timeline-container">
-            <div class="timeline-line" id="timelineLine"></div>
-
-            <div class="timeline-item" data-date="2026">
-              <div class="timeline-marker">
-                <span
-                  class="iconify"
-                  data-icon="carbon:user-role"
-                  data-width="24"
-                ></span>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-photo">
-                  <img src="./img/Profil-3.jpg" alt="Asisten Praktikum" />
-                </div>
-                <h3
-                  data-en="Teaching Assistant - Algorithm & Programming"
-                  data-id="Asisten Praktikum - Algoritma & Pemrograman"
-                >
-                  Teaching Assistant - Algorithm & Programming
-                </h3>
-                <p class="timeline-date">2026</p>
-                <p
-                  class="timeline-description"
-                  data-en="Guided students through hands-on coding sessions, debugging code, and mastering core programming concepts in a lab environment."
-                  data-id="Membimbing mahasiswa dalam sesi koding praktis, membantu debugging, serta memahami konsep dasar pemrograman di laboratorium."
-                >
-                  Guided students through hands-on coding sessions, debugging
-                  code, and mastering core programming concepts in a lab
-                  environment.
-                </p>
-                <div class="timeline-tags">
-                  <span class="tag">Teaching</span
-                  ><span class="tag">Algorithm</span
-                  ><span class="tag">Debugging</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-item" data-date="2026">
-              <div class="timeline-marker">
-                <span
-                  class="iconify"
-                  data-icon="carbon:group"
-                  data-width="24"
-                ></span>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-photo">
-                  <img src="./img/Banner.png" alt="PKM Project" />
-                </div>
-                <h3
-                  data-en="PKM Team Leader - Smart Gate Project"
-                  data-id="Ketua Tim PKM - Proyek Smart Gate"
-                >
-                  PKM Team Leader - Smart Gate Project
-                </h3>
-                <p class="timeline-date">2026</p>
-                <p
-                  class="timeline-description"
-                  data-en="Led a 3-member team developing an automated Smart Gate project integrating IoT and Computer Vision technology."
-                  data-id="Memimpin tim 3 anggota mengembangkan proyek pintu tol otomatis berbasis IoT dan Computer Vision."
-                >
-                  Led a 3-member team developing an automated Smart Gate project
-                  integrating IoT and Computer Vision technology.
-                </p>
-                <div class="timeline-tags">
-                  <span class="tag">PKM</span><span class="tag">IoT</span
-                  ><span class="tag">Computer Vision</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- PENCAPAIAN DENGAN BUKTI GAMBAR TRANSKRIP & IPK 3.58 -->
-            <div class="timeline-item" data-date="Sem 1-5">
-              <div class="timeline-marker">
-                <span
-                  class="iconify"
-                  data-icon="carbon:trophy"
-                  data-width="24"
-                ></span>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-photo">
-                  <img
-                    src="./img/Profil-1.jpg"
-                    alt="Transkrip Nilai IPK 3.58"
-                  />
-                </div>
-                <h3
-                  data-en="Academic Excellence - GPA 3.58/4.00"
-                  data-id="Prestasi Akademik - IPK 3.58/4.00"
-                >
-                  Academic Excellence - GPA 3.58/4.00
-                </h3>
-                <p class="timeline-date">Semester 1-5 | 88 SKS Completed</p>
-                <p
-                  class="timeline-description"
-                  data-en="Maintained a cumulative GPA of 3.58 across 88 SKS. Grade A achievements in OOP, Algorithm & Programming, Data Structures, Data Science, and Software Engineering."
-                  data-id="Mempertahankan IPK 3.58 dari total 88 SKS. Nilai A dalam PBO, Algoritma & Pemrograman, Struktur Data, Data Science, dan Rekayasa Perangkat Lunak."
-                >
-                  Maintained a cumulative GPA of 3.58 across 88 SKS. Grade A
-                  achievements in OOP, Algorithm & Programming, Data Structures,
-                  Data Science, and Software Engineering.
-                </p>
-                <div class="timeline-tags">
-                  <span class="tag">GPA 3.58</span
-                  ><span class="tag">Data Science (A)</span
-                  ><span class="tag">Software Engineering (A)</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-item" data-date="Oct 2025">
-              <div class="timeline-marker">
-                <span
-                  class="iconify"
-                  data-icon="carbon:code"
-                  data-width="24"
-                ></span>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-photo">
-                  <img src="./img/Profil-2.jpg" alt="GEMASTIK XVIII" />
-                </div>
-                <h3
-                  data-en="GEMASTIK XVIII 2025 Participant"
-                  data-id="Peserta GEMASTIK XVIII 2025"
-                >
-                  GEMASTIK XVIII 2025 Participant
-                </h3>
-                <p class="timeline-date">
-                  Telkom University, Bandung | Oct 2025
-                </p>
-                <p
-                  class="timeline-description"
-                  data-en="Competed in the Programming Division at GEMASTIK XVIII, organized by the Ministry of Higher Education, Science and Technology."
-                  data-id="Berkompetisi dalam Divisi Pemrograman pada GEMASTIK XVIII yang diselenggarakan oleh Kementerian Pendidikan Tinggi, Sains, dan Teknologi."
-                >
-                  Competed in the Programming Division at GEMASTIK XVIII,
-                  organized by the Ministry of Higher Education, Science and
-                  Technology.
-                </p>
-                <div class="timeline-tags">
-                  <span class="tag">GEMASTIK 2025</span
-                  ><span class="tag">Programming</span
-                  ><span class="tag">National Event</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-end">
-              <div class="timeline-marker end">
-                <span
-                  class="iconify"
-                  data-icon="carbon:continue"
-                  data-width="24"
-                ></span>
-              </div>
-              <p
-                data-en="The Voyage Continues..."
-                data-id="Petualangan Berlanjut..."
+          <div class="ach-stats">
+            <div class="ach-stat">
+              <div class="ach-stat-num" data-count="3">3</div>
+              <div
+                class="ach-stat-label"
+                data-en="Competitions"
+                data-id="Kompetisi"
               >
-                The Voyage Continues...
-              </p>
+                Competitions
+              </div>
             </div>
+            <div class="ach-stat">
+              <div class="ach-stat-num" data-count="2">2</div>
+              <div
+                class="ach-stat-label"
+                data-en="Lab Courses Assisted"
+                data-id="Mata Kuliah Diasuh"
+              >
+                Lab Courses Assisted
+              </div>
+            </div>
+            <div class="ach-stat">
+              <div class="ach-stat-num" data-count="2">2</div>
+              <div
+                class="ach-stat-label"
+                data-en="Speaking Roles"
+                data-id="Peran Pembicara"
+              >
+                Speaking Roles
+              </div>
+            </div>
+            <div class="ach-stat">
+              <div class="ach-stat-num" data-count="3.58" data-decimals="2">
+                3.58
+              </div>
+              <div class="ach-stat-label" data-en="GPA" data-id="IPK">GPA</div>
+            </div>
+          </div>
+
+          <div class="ach-filters">
+            <button
+              class="ach-filter active"
+              data-filter="all"
+              data-en="All"
+              data-id="Semua"
+            >
+              All
+            </button>
+            <button
+              class="ach-filter"
+              data-filter="competition"
+              data-en="Competition"
+              data-id="Kompetisi"
+            >
+              Competition
+            </button>
+            <button
+              class="ach-filter"
+              data-filter="teaching"
+              data-en="Teaching"
+              data-id="Mengajar"
+            >
+              Teaching
+            </button>
+            <button
+              class="ach-filter"
+              data-filter="speaking"
+              data-en="Public Speaking"
+              data-id="Public Speaking"
+            >
+              Public Speaking
+            </button>
+            <button
+              class="ach-filter"
+              data-filter="leadership"
+              data-en="Leadership"
+              data-id="Kepemimpinan"
+            >
+              Leadership
+            </button>
+            <button
+              class="ach-filter"
+              data-filter="academic"
+              data-en="Academic"
+              data-id="Akademik"
+            >
+              Academic
+            </button>
+          </div>
+
+          <div class="ach-grid">
+            <!-- 1. AI Innovation Challenge -->
+            <article class="ach-card" data-category="competition">
+              <div class="ach-top">
+                <span
+                  class="ach-badge"
+                  data-en="Competition"
+                  data-id="Kompetisi"
+                  >Competition</span
+                >
+                <span class="ach-stamp">2026</span>
+              </div>
+              <div class="ach-photo">
+                <img
+                  src="./assets/keaktifan/AIC-COMPFEST18.png"
+                  alt="Sertifikat AI Innovation Challenge COMPFEST 18"
+                />
+              </div>
+              <h3
+                data-en="AI Innovation Challenge Participant - COMPFEST 18"
+                data-id="Peserta AI Innovation Challenge - COMPFEST 18"
+              >
+                AI Innovation Challenge Participant - COMPFEST 18
+              </h3>
+              <p class="ach-meta">Jul - Sep 2026</p>
+              <p
+                class="ach-desc"
+                data-en="Took part in the AI Innovation Challenge, a competition held as part of COMPFEST 18 from July to September 2026. My innovative idea was to create an AI model to help sellers understand e-commerce regulations, ensuring compliance with promotion regulations set by BPOM."
+                data-id="Mengikuti kompetisi AI Innovation Challenge yang diselenggarakan dalam rangkaian COMPFEST 18 pada Juli sampai September 2026. Ide yang saya inovasikan membuat model Ai untuk seller memahami regulasi e-commerce agar seller mematuhi regulasi promosi berdasarkan yang sudah di tetapkan BPOM"
+              >
+                Took part in the AI Innovation Challenge, a competition held as
+                part of COMPFEST 18 from July to September 2026.
+              </p>
+              <div class="ach-tags">
+                <span class="tag">COMPFEST 18</span><span class="tag">AI</span
+                ><span class="tag">Competition</span>
+              </div>
+            </article>
+
+            <!-- 2. Asisten Praktikum -->
+            <article class="ach-card" data-category="teaching">
+              <div class="ach-top">
+                <span class="ach-badge" data-en="Teaching" data-id="Mengajar"
+                  >Teaching</span
+                >
+                <span class="ach-stamp">2026</span>
+              </div>
+              <div class="ach-photo portrait">
+                <img
+                  src="./assets/img/Now-Asprak.png"
+                  alt="Sertifikat Laboratory Teaching Assistant"
+                />
+              </div>
+              <h3
+                data-en="Teaching Assistant - Programming Fundamentals & Probability and Statistics"
+                data-id="Asisten Praktikum - Programming Fundamentals & Probabilitas dan Statistik"
+              >
+                Teaching Assistant - Programming Fundamentals & Probability and
+                Statistics
+              </h3>
+              <p class="ach-meta">2025/2026 | Universitas Al-Azhar Indonesia</p>
+              <p
+                class="ach-desc"
+                data-en="Guided students through hands-on coding sessions and debugging in Programming Fundamentals (even semester 2025/2026), and also served as practicum assistant for Probability and Statistics."
+                data-id="Membimbing mahasiswa dalam sesi koding praktis dan debugging pada praktikum Programming Fundamentals (semester genap 2025/2026), serta menjadi asisten praktikum Probabilitas dan Statistik."
+              >
+                Guided students through hands-on coding sessions and debugging
+                in Programming Fundamentals (even semester 2025/2026), and also
+                served as practicum assistant for Probability and Statistics.
+              </p>
+              <div class="ach-tags">
+                <span class="tag">Teaching</span
+                ><span class="tag">Debugging</span
+                ><span class="tag">Statistics</span>
+              </div>
+            </article>
+
+            <!-- 3. SCPC COMPFEST 17 -->
+            <article class="ach-card" data-category="competition">
+              <div class="ach-top">
+                <span
+                  class="ach-badge"
+                  data-en="Competition"
+                  data-id="Kompetisi"
+                  >Competition</span
+                >
+                <span class="ach-stamp">2025</span>
+              </div>
+              <div class="ach-photo">
+                <img
+                  src="./assets/keaktifan/SCPC-COMPFEST17.jpg"
+                  alt="Sertifikat SCPC COMPFEST 17"
+                />
+              </div>
+              <h3
+                data-en="Senior Competitive Programming Contest Participant - COMPFEST 17"
+                data-id="Peserta Senior Competitive Programming Contest - COMPFEST 17"
+              >
+                Senior Competitive Programming Contest Participant - COMPFEST 17
+              </h3>
+              <p class="ach-meta">COMPFEST 17 | 2025</p>
+              <p
+                class="ach-desc"
+                data-en="Competed in the Senior Competitive Programming Contest, a programming competition held at COMPFEST 17."
+                data-id="Berkompetisi dalam Senior Competitive Programming Contest, kompetisi pemrograman di COMPFEST 17."
+              >
+                Competed in the Senior Competitive Programming Contest, a
+                programming competition held at COMPFEST 17.
+              </p>
+              <div class="ach-tags">
+                <span class="tag">COMPFEST 17</span
+                ><span class="tag">Competitive Programming</span
+                ><span class="tag">Algorithm</span>
+              </div>
+            </article>
+
+            <!-- 4. Moderator Webinar -->
+            <article class="ach-card" data-category="speaking">
+              <div class="ach-top">
+                <span
+                  class="ach-badge"
+                  data-en="Public Speaking"
+                  data-id="Public Speaking"
+                  >Public Speaking</span
+                >
+                <span class="ach-stamp">2025</span>
+              </div>
+              <div class="ach-photo">
+                <img
+                  src="./assets/img/MC.png"
+                  alt="Poster Webinar Anti Plagiarisme"
+                  style="object-position: center 25%"
+                />
+              </div>
+              <h3
+                data-en="Moderator - Plagiarism-Free Academic Culture Webinar"
+                data-id="Moderator - Webinar Membangun Budaya Akademik Bebas Plagiarisme"
+              >
+                Moderator - Plagiarism-Free Academic Culture Webinar
+              </h3>
+              <p class="ach-meta">
+                14 Jun 2025 | Universitas Al-Azhar Indonesia
+              </p>
+              <p
+                class="ach-desc"
+                data-en="Moderated a public webinar on building a plagiarism-free academic culture with speaker Rifda Jilan Syahidah, S.Hum., organized by Student Affairs of Universitas Al-Azhar Indonesia."
+                data-id="Menjadi moderator webinar terbuka tentang membangun budaya akademik bebas plagiarisme bersama narasumber Rifda Jilan Syahidah, S.Hum., diselenggarakan oleh Kemahasiswaan Universitas Al-Azhar Indonesia."
+              >
+                Moderated a public webinar on building a plagiarism-free
+                academic culture with speaker Rifda Jilan Syahidah, S.Hum.,
+                organized by Student Affairs of Universitas Al-Azhar Indonesia.
+              </p>
+              <div class="ach-tags">
+                <span class="tag">Moderator</span
+                ><span class="tag">Public Speaking</span
+                ><span class="tag">Webinar</span>
+              </div>
+            </article>
+
+            <!-- 5. SIF -->
+            <article class="ach-card" data-category="speaking">
+              <div class="ach-top">
+                <span
+                  class="ach-badge"
+                  data-en="Public Speaking"
+                  data-id="Public Speaking"
+                  >Public Speaking</span
+                >
+                <span class="ach-stamp">2024</span>
+              </div>
+              <div class="ach-photo">
+                <img
+                  src="./assets/img/Journey-SIF.JPG"
+                  alt="Sertifikat Narasumber NGOBRAL Seri 13"
+                />
+              </div>
+              <h3
+                data-en="Speaker - Event of Society Informatics (SIF) Forum organized"
+                data-id="Pemateri - Society Informatics (SIF) Forum kegiatan himpunan"
+              >
+                Speaker - Event of Society Informatics (SIF) Forum
+              </h3>
+              <p class="ach-meta">
+                21 November 2024 | Universitas Al-Azhar Indonesia
+              </p>
+              <p
+                class="ach-desc"
+                data-en="socializing technology to introduce informatics studies to high school students at SMA/SMK Ciputat"
+                data-id="Mensosialisasikan teknoloogi yang untuk memperkenalkan studi informatika untuk sisw & siswi SMA/SMK Ciputat"
+              >
+                socializing technology to introduce informatics studies to high
+                school students at SMA/SMK Ciputat.
+              </p>
+              <div class="ach-tags">
+                <span class="tag">Speaker</span
+                ><span class="tag">Organization</span
+                ><span class="tag">Public Speaking</span>
+              </div>
+            </article>
+
+            <!-- 6. organization -->
+            <article class="ach-card" data-category="leadership">
+              <div class="ach-top">
+                <span
+                  class="ach-badge"
+                  data-en="Public Speaking"
+                  data-id="Public Speaking"
+                  >Public Speaking</span
+                >
+                <span class="ach-stamp">2024</span>
+              </div>
+              <div class="ach-photo">
+                <img
+                  src="./assets/img/Pemateri-2.JPG"
+                  alt="Poster Webinar Anti Plagiarisme"
+                  style="object-position: center 25%"
+                />
+              </div>
+              <h3
+                data-en="Leadership Role - Event of Society Informatics (SIF)"
+                data-id="Ketua Divisi Acara Society Informatics (SIF)"
+              >
+                Leadership Role - Event of Society Informatics (SIF) Forum
+                organized by the Informatics Student Association of Universitas
+                Al-Azhar Indonesia
+              </h3>
+              <p class="ach-meta">
+                21 November 2024 | Universitas Al-Azhar Indonesia
+              </p>
+              <p
+                class="ach-desc"
+                data-en="Leadership Role - Event of Society Informatics (SIF) Forum organized by the Informatics Student Association of Universitas Al-Azhar Indonesia"
+                data-id="Peran Kepemimpinan - Divisi Acara Society Informatics (SIF) Forum yang diselenggarakan oleh Himpunan Mahasiswa Informatika Universitas Al-Azhar Indonesia"
+              >
+                Leadership Role - Event of Society Informatics (SIF) Forum
+                organized by the Informatics Student Association of Universitas
+                Al-Azhar Indonesia.
+              </p>
+              <div class="ach-tags">
+                <span class="tag">Moderator</span
+                ><span class="tag">Leadership</span
+                ><span class="tag">Organization</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -637,70 +799,298 @@
       <!-- SKILLS SECTION -->
       <section id="skills" class="page-section">
         <div class="section-container">
-          <h1 class="section-title">Technical Skills</h1>
-          <p class="section-subtitle">
-            Core competencies and technological arsenal
+          <h1 class="section-title" data-en="Tools Box" data-id="Perkakas saya">
+            Tools Box
+          </h1>
+          <p
+            class="section-subtitle"
+            data-en="my weapon loadout for my mission"
+            data-id="peralatan tempur saya"
+          >
+            my weapon loadout for my mission
           </p>
 
-          <div class="skills-grid">
-            <div class="skill-card">
-              <h3>
-                <span class="iconify" data-icon="carbon:code"></span>
-                Programming Languages
-              </h3>
-              <p>
-                Python, Java (OOP & Procedural), JavaScript, PHP, HTML5 & CSS3
-              </p>
+          <div class="skills-board">
+            <div class="skill-row">
+              <div
+                class="skill-label"
+                data-en="Languages"
+                data-id="Bahasa Pemrograman"
+              >
+                Languages
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span class="iconify" data-icon="logos:c"></span></span
+                  >C</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:python"
+                    ></span></span
+                  >Python</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span class="iconify" data-icon="logos:java"></span></span
+                  >Java</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:javascript"
+                    ></span></span
+                  >JavaScript</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:html-5"
+                    ></span></span
+                  >HTML5</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span class="iconify" data-icon="logos:css-3"></span></span
+                  >CSS3</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:typescript"
+                    ></span></span
+                  >TypeScript</span
+                >
+              </div>
             </div>
-            <div class="skill-card">
-              <h3>
-                <span
-                  class="iconify"
-                  data-icon="carbon:machine-learning-model"
-                ></span>
-                Data Science & ML
-              </h3>
-              <p>
-                Logistic Regression, SVM, KNN, K-Means, DBSCAN, Random Forest,
-                Linear Regression
-              </p>
+
+            <div class="skill-row">
+              <div class="skill-label" data-en="Frameworks" data-id="Framework">
+                Frameworks
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:fastapi-icon"
+                    ></span></span
+                  >FastAPI</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span class="iconify" data-icon="logos:react"></span></span
+                  >React Native</span
+                >
+              </div>
             </div>
-            <div class="skill-card">
-              <h3>
-                <span class="iconify" data-icon="carbon:brain"></span> Deep
-                Learning
-              </h3>
-              <p>
-                CNN, IndoBERT | <strong>Libraries:</strong> PyTorch, TensorFlow,
-                Scikit-Learn, Pandas, NumPy
-              </p>
-            </div>
-            <div class="skill-card">
-              <h3>
-                <span class="iconify" data-icon="carbon:application-web"></span>
-                Frameworks & Backend
-              </h3>
-              <p>FastAPI, Pydantic AI, Next.js, Laravel</p>
-            </div>
-            <div class="skill-card">
-              <h3>
-                <span class="iconify" data-icon="carbon:tree-view"></span> DSA &
-                Fundamentals
-              </h3>
-              <p>
-                Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash
-                Tables, Big O Analysis
-              </p>
-            </div>
-            <div class="skill-card">
-              <h3>
-                <span class="iconify" data-icon="carbon:tools"></span> Tools &
+
+            <div class="skill-row">
+              <div class="skill-label" data-en="Databases" data-id="Basis Data">
                 Databases
-              </h3>
-              <p>
-                Git, GitHub, VS Code, PyCharm, Jupyter, Anaconda, PostgreSQL, R
-                Studio, Linux Mint
-              </p>
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:postgresql"
+                    ></span></span
+                  >PostgreSQL</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="mdi:database"
+                    ></span></span
+                  >SQL</span
+                >
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-label" data-en="Tools" data-id="Alat">
+                Tools
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:git-icon"
+                    ></span></span
+                  >Git</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span class="iconify" data-icon="mdi:github"></span></span
+                  >GitHub</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:visual-studio-code"
+                    ></span></span
+                  >VS Code</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:pycharm"
+                    ></span></span
+                  >PyCharm</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:jupyter"
+                    ></span></span
+                  >Jupyter</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="simple-icons:anaconda"
+                    ></span></span
+                  >Anaconda</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:r-lang"
+                    ></span></span
+                  >R Studio</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="simple-icons:linuxmint"
+                    ></span></span
+                  >Linux Mint</span
+                >
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-label" data-en="AI / ML" data-id="AI / ML">
+                AI / ML
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip">Logistic Regression</span>
+                <span class="skill-chip">SVM</span>
+                <span class="skill-chip">KNN</span>
+                <span class="skill-chip">K-Means</span>
+                <span class="skill-chip">DBSCAN</span>
+                <span class="skill-chip">Random Forest</span>
+                <span class="skill-chip">Linear Regression</span>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div
+                class="skill-label"
+                data-en="Deep Learning"
+                data-id="Deep Learning"
+              >
+                Deep Learning
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip">CNN</span>
+                <span class="skill-chip">IndoBERT</span>
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:pytorch-icon"
+                    ></span></span
+                  >PyTorch</span
+                >
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div
+                class="skill-label"
+                data-en="Data Libraries"
+                data-id="Library Data"
+              >
+                Data Libraries
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:scikit-learn"
+                    ></span></span
+                  >Scikit-Learn</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:pandas-icon"
+                    ></span></span
+                  >Pandas</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="simple-icons:numpy"
+                    ></span></span
+                  >NumPy</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:matplotlib"
+                    ></span></span
+                  >Matplotlib</span
+                >
+                <span class="skill-chip"
+                  ><span class="skill-icon"
+                    ><span
+                      class="iconify"
+                      data-icon="logos:seaborn"
+                    ></span></span
+                  >Seaborn</span
+                >
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div
+                class="skill-label"
+                data-en="Fundamentals"
+                data-id="Dasar Komputer"
+              >
+                Fundamentals
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip">Arrays</span>
+                <span class="skill-chip">Linked Lists</span>
+                <span class="skill-chip">Stacks</span>
+                <span class="skill-chip">Queues</span>
+                <span class="skill-chip">Trees</span>
+                <span class="skill-chip">Graphs</span>
+                <span class="skill-chip">Hash Tables</span>
+                <span class="skill-chip">Big O Analysis</span>
+              </div>
             </div>
           </div>
         </div>
@@ -709,54 +1099,224 @@
       <!-- PROJECTS SECTION -->
       <section id="projects" class="page-section">
         <div class="section-container">
-          <h1 class="section-title">Featured Projects</h1>
-          <p class="section-subtitle">
-            Real-world software and Machine Learning implementations
+          <h1
+            class="section-title"
+            data-en="Projects & Implementations"
+            data-id="Proyek & Implementasi"
+          >
+            Projects & Implementations
+          </h1>
+          <p
+            class="section-subtitle"
+            data-en="My hands-on projects and practical implementations"
+            data-id="Tugas kuliah & kompetisi project saya"
+          >
+            My hands-on projects and practical implementations
           </p>
 
-          <div class="projects-list">
-            <div class="project-card">
-              <h3>Sleep-Healthy-Classifier</h3>
-              <p>
-                Machine Learning classification model analyzing sleep health
-                patterns, achieving 96% accuracy and 0.96 F1-Score.
-              </p>
-              <a href="https://github.com/FadliGhafatulHijriah" target="_blank"
-                >View on GitHub →</a
-              >
-            </div>
-            <div class="project-card">
-              <h3>Seller Compliance Assistant</h3>
-              <p>
-                AI assistant utilizing Pydantic AI and FastAPI for seller
-                compliance and policy verification in e-commerce workflows.
-              </p>
-              <a href="https://github.com/FadliGhafatulHijriah" target="_blank"
-                >View on GitHub →</a
-              >
-            </div>
-            <div class="project-card">
-              <h3>Waste Image Classifier</h3>
-              <p>
-                Deep Learning image classification model categorizing waste
-                (Recyclable, Electronic, Organic) with Macro F1-Score of 0.9664.
-              </p>
-              <a href="https://github.com/FadliGhafatulHijriah" target="_blank"
-                >View on GitHub →</a
-              >
-            </div>
-            <div class="project-card">
-              <h3>Sorting Algorithm Visualizer</h3>
-              <p>
-                Interactive visualization of 6 sorting algorithms in Python with
-                real-time animations and performance dashboard.
-              </p>
-              <a
-                href="https://github.com/FadliGhafatulHijriah/Sorting-Algoritma"
-                target="_blank"
-                >View on GitHub →</a
-              >
-            </div>
+          <div class="projects-showcase">
+            <!-- 1. Sleep Health Classifier -->
+            <article class="proj-row">
+              <div class="proj-shot">
+                <div class="proj-shot-inner">
+                  <span class="proj-fallback">Sleep Health Classifier</span>
+                  <img
+                    src="./assets/img/project_section/sleep-health.png"
+                    alt="Sleep Health Classifier"
+                    onerror="this.remove()"
+                  />
+                </div>
+              </div>
+              <div class="proj-info">
+                <p class="proj-index">01 / 04 &middot; AI / ML</p>
+                <h3 class="proj-title">Sleep Health Classifier</h3>
+                <p
+                  class="proj-tagline"
+                  data-en="Predicting sleep health from lifestyle data"
+                  data-id="Memprediksi kesehatan tidur dari data gaya hidup"
+                >
+                  Predicting sleep health from lifestyle data
+                </p>
+                <p
+                  class="proj-desc"
+                  data-en="Machine Learning classification model analyzing sleep health patterns, achieving 96% accuracy and 0.96 F1-Score."
+                  data-id="Model klasifikasi Machine Learning yang menganalisis pola kesehatan tidur, dengan akurasi 96% dan F1-Score 0.96."
+                >
+                  Machine Learning classification model analyzing sleep health
+                  patterns, achieving 96% accuracy and 0.96 F1-Score.
+                </p>
+                <span class="proj-badge"
+                  >96% Accuracy &middot; 0.96 F1-Score</span
+                >
+                <div class="proj-tags">
+                  <span class="tag">Python</span
+                  ><span class="tag">Machine Learning</span
+                  ><span class="tag">Classification</span>
+                </div>
+                <a
+                  class="proj-btn"
+                  href="https://github.com/FadliGhafatulHijriah/Sleep-Healthy-Classifier"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="View Repository →"
+                  data-id="Lihat Repository →"
+                  >View Repository →</a
+                >
+              </div>
+            </article>
+
+            <!-- 2. Seller Compliance Assistant -->
+            <article class="proj-row">
+              <div class="proj-shot">
+                <div class="proj-shot-inner">
+                  <span class="proj-fallback">Seller Compliance Assistant</span>
+                  <img
+                    src="./assets/img/Project_seller-compilance.png"
+                    alt="Seller Compliance Assistant"
+                    onerror="this.remove()"
+                  />
+                </div>
+              </div>
+              <div class="proj-info">
+                <p class="proj-index">02 / 04 &middot; AI / ML</p>
+                <h3 class="proj-title">Seller Compliance Assistant</h3>
+                <p
+                  class="proj-tagline"
+                  data-en="An AI assistant that keeps small sellers compliant"
+                  data-id="Asisten AI yang menjaga seller kecil tetap patuh aturan"
+                >
+                  An AI assistant that keeps small sellers compliant
+                </p>
+                <p
+                  class="proj-desc"
+                  data-en="This project was developed for the AI ​​Innovation competition at CompFest 18. It utilizes Pydantic AI, FastAPI, and the IndoBERT classification model to screen products for prohibited ingredients and policy violations, helping to prevent sellers from having their listings taken down due to a lack of familiarity with BPOM (Indonesian FDA) regulations."
+                  data-id="Project ini adalah project kompetisi dari Ai Innovation CompFest 18, Memakai Pydantic AI, FastAPI, Next.Js dan model klasifikasi IndoBERT untuk memeriksa produk dari bahan terlarang dan pelanggaran kebijakan, agar seller tidak di-take down karena kurang paham regulasi BPOM."
+                >
+                  Uses Pydantic AI, FastAPI, and an IndoBERT classification
+                  model to check product listings for prohibited ingredients and
+                  policy violations, helping sellers avoid takedowns caused by
+                  limited knowledge of BPOM regulations.
+                </p>
+                <span class="proj-badge"
+                  >IndoBERT &middot; BPOM Compliance</span
+                >
+                <div class="proj-tags">
+                  <span class="tag">Python</span><span class="tag">FastAPI</span
+                  ><span class="tag">Pydantic AI</span
+                  ><span class="tag">IndoBERT</span>
+                </div>
+                <a
+                  class="proj-btn"
+                  href="https://github.com/FadliGhafatulHijriah/seller-compliance-assistant"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="View Repository →"
+                  data-id="Lihat Repository →"
+                  >View Repository →</a
+                >
+              </div>
+            </article>
+
+            <!-- 3. Waste Image Classifier -->
+            <article class="proj-row">
+              <div class="proj-shot">
+                <div class="proj-shot-inner">
+                  <span class="proj-fallback">Waste Image Classifier</span>
+                  <img
+                    src="./assets/img/project_section/waste-image.png"
+                    alt="Waste Image Classifier"
+                    onerror="this.remove()"
+                  />
+                </div>
+              </div>
+              <div class="proj-info">
+                <p class="proj-index">03 / 04 &middot; AI / ML</p>
+                <h3 class="proj-title">Waste Image Classifier</h3>
+                <p
+                  class="proj-tagline"
+                  data-en="Sorting waste automatically from a photo"
+                  data-id="Memilah sampah otomatis dari sebuah foto"
+                >
+                  Sorting waste automatically from a photo
+                </p>
+                <p
+                  class="proj-desc"
+                  data-en="This project is a big data competition entry: a deep learning image classification model that categorizes waste (Recyclable, Electronic, Organic) with a Macro F1-Score of 0.9664."
+                  data-id="project ini adlaah project kompetisi data besar, Model klasifikasi gambar Deep Learning yang mengelompokkan sampah (Recyclable, Electronic, Organic) dengan Macro F1-Score 0.9664."
+                >
+                  Deep Learning image classification model categorizing waste
+                  (Recyclable, Electronic, Organic) with a Macro F1-Score of
+                  0.9664.
+                </p>
+                <span class="proj-badge">Macro F1-Score 0.9664</span>
+                <div class="proj-tags">
+                  <span class="tag">Python</span
+                  ><span class="tag">Deep Learning</span
+                  ><span class="tag">Image Classification</span>
+                </div>
+                <a
+                  class="proj-btn"
+                  href="https://github.com/FadliGhafatulHijriah/waste-image-classifier"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="View Repository →"
+                  data-id="Lihat Repository →"
+                  >View Repository →</a
+                >
+              </div>
+            </article>
+
+            <!-- 4. Pemrogramman Cross Platform -->
+            <article class="proj-row">
+              <div class="proj-shot">
+                <div class="proj-shot-inner">
+                  <span class="proj-fallback">First Learn React</span>
+                  <img
+                    src="./assets/img/project_section/Cross-Platform.png"
+                    alt="Sorting Algorithm Visualizer"
+                    onerror="this.remove()"
+                  />
+                </div>
+              </div>
+              <div class="proj-info">
+                <p class="proj-index">04 / 04 &middot; Cross Platform</p>
+                <h3 class="proj-title">Pemrogramman Cross Platform</h3>
+                <p
+                  class="proj-tagline"
+                  data-en="learning the implementation of cross-platform programming"
+                  data-id="Belajar Mengintegrasikan pemrogramman cross platform"
+                >
+                  implementing basic mathematical logic and rendering a user
+                  interface (UI)
+                </p>
+                <p
+                  class="proj-desc"
+                  data-en="In this fifth semester, I am learning cross-platform programming for the first time using React and TypeScript, with a focus on implementing basic mathematical logic and rendering a user interface (UI) with React."
+                  data-id="Di semester 5 ini pertama kali saya belajar memprogram cross platform dengan react dan typescript, Fokus : Implementasi dasar logika matematik dan menampilkan UI dengan React"
+                >
+                  interactive visualization of the logic behind mathematical
+                  problems and biographies and still continue
+                </p>
+                <span class="proj-badge">
+                  React & TypeScrippt &middot; Learning</span
+                >
+                <div class="proj-tags">
+                  <span class="tag">Python</span
+                  ><span class="tag">Algorithms</span
+                  ><span class="tag">Data Visualization</span
+                  ><span class="tag">React.Native</span>
+                </div>
+                <a
+                  class="proj-btn"
+                  href="https://github.com/shazee-a/Profile-Tim-"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="View Repository →"
+                  data-id="Lihat Repository →"
+                  >View Repository →</a
+                >
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -764,117 +1324,306 @@
       <!-- CERTIFICATES SECTION -->
       <section id="certificates" class="page-section">
         <div class="section-container">
-          <h1 class="section-title">Certifications & Bounties</h1>
-          <p class="section-subtitle">
-            Formal credentials, professional training, and event documentations
+          <h1
+            class="section-title"
+            data-en="Certifications & Bounties"
+            data-id="Sertifikasi & Penghargaan"
+          >
+            Certifications & Bounties
+          </h1>
+          <p
+            class="section-subtitle"
+            data-en="Courses and workshops I completed, with verification links where available"
+            data-id="Kelas dan workshop yang saya selesaikan, lengkap dengan tautan verifikasi"
+          >
+            Courses and workshops I completed, with verification links where
+            available
           </p>
 
-          <div class="cert-gallery-grid">
-            <div class="cert-card">
-              <div class="cert-img-container">
-                <img
-                  src="./img/Profil-1.jpg"
-                  alt="Sertifikat Belajar Struktur Data"
-                />
+          <div class="cert-list">
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
               </div>
-              <div class="cert-info">
-                <h3>Belajar Struktur Data</h3>
-                <p>
-                  Dicoding Indonesia — Sertifikasi kompetensi struktur data
-                  dasar & lanjut seperti Array, Linked List, Stack, Queue, Tree,
-                  dan Graph.
+              <div class="cert-main">
+                <h3
+                  data-en="Algorithm Programming Teaching Assistant"
+                  data-id="Assistant Algoritma Pemrogramman"
+                >
+                  Assistant Algoritma Pemrogramman
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Universitas Al-Azhar Indonesia &middot; Oct 17, 2026"
+                  data-id="Universitas Al-Azhar Indonesia &middot; 17 Okt 2026"
+                >
+                  Universitas Al-Azhar Indonesia &middot; 17 Oct 2026
                 </p>
-                <span class="cert-badge">Dicoding Certificate</span>
+              </div>
+              <div class="cert-actions">
+                <span class="tag" data-en="Programming" data-id="Pemrograman"
+                  >Programming</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://drive.google.com/file/d/1n8EYlo3mPLXRTNnKVi1o4knu2Mobv33R/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
               </div>
             </div>
 
-            <div class="cert-card">
-              <div class="cert-img-container">
-                <img
-                  src="./img/Profil-2.jpg"
-                  alt="Sertifikat Belajar Pemrograman Prosedural Python"
-                />
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
               </div>
-              <div class="cert-info">
-                <h3>Belajar Pemrograman Prosedural dengan Python</h3>
-                <p>
-                  Dicoding Indonesia — Sertifikasi penguasaan paradigma
-                  pemrograman prosedural, variabel, percabangan, fungsi, dan
-                  manipulasi data.
+              <div class="cert-main">
+                <h3
+                  data-en="Learning Procedural Programming with Python"
+                  data-id="Belajar Pemrograman Prosedural dengan Python"
+                >
+                  Belajar Pemrograman Prosedural dengan Python
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Dicoding Indonesia &middot; Nov 17, 2025"
+                  data-id="Dicoding Indonesia &middot; 17 Nov 2025"
+                >
+                  Dicoding Indonesia &middot; 17 Nov 2025
                 </p>
-                <span class="cert-badge">Dicoding Certificate</span>
+              </div>
+              <div class="cert-actions">
+                <span class="tag" data-en="Programming" data-id="Pemrograman"
+                  >Programming</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://dicoding.com/certificates/KEXL2N0QWZG2"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
               </div>
             </div>
 
-            <div class="cert-card">
-              <div class="cert-img-container">
-                <img
-                  src="./img/Profil-3.jpg"
-                  alt="Sertifikat Belajar Dasar Database"
-                />
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
               </div>
-              <div class="cert-info">
-                <h3>Belajar Dasar Database</h3>
-                <p>
-                  Dicoding Indonesia — Sertifikasi perancangan database
-                  relasional, skema ERD, klausa SQL, DDL, DML, dan normalisasi
-                  data.
+              <div class="cert-main">
+                <h3
+                  data-en="Learning Basic Data Visualization"
+                  data-id="Belajar Dasar Visualisasi Data"
+                >
+                  Belajar Dasar Visualisasi Data
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Dicoding Indonesia &middot; Nov 15, 2025"
+                  data-id="Dicoding Indonesia &middot; 15 Nov 2025"
+                >
+                  Dicoding Indonesia &middot; 15 Nov 2025
                 </p>
-                <span class="cert-badge">Dicoding Certificate</span>
+              </div>
+              <div class="cert-actions">
+                <span
+                  class="tag"
+                  data-en="Data Visualization"
+                  data-id="Visualisasi Data"
+                  >Data Visualization</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://dicoding.com/certificates/L4PQ2YG92ZO1"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
               </div>
             </div>
 
-            <div class="cert-card">
-              <div class="cert-img-container">
-                <img
-                  src="./img/Profil-4.jpg"
-                  alt="Sertifikat Prompting for Software Engineering"
-                />
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
               </div>
-              <div class="cert-info">
-                <h3>Belajar Prompting for Software Engineering</h3>
-                <p>
-                  Dicoding Indonesia — Sertifikasi penerapan Prompt Engineering
-                  dengan LLM untuk akselerasi koding, refactoring, dan sintesis
-                  algoritma.
+              <div class="cert-main">
+                <h3
+                  data-en="Learning the Basics of Structured Query Language (SQL)"
+                  data-id="Belajar Dasar Structured Query Language (SQL)"
+                >
+                  Belajar Dasar Structured Query Language (SQL)
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Dicoding Indonesia &middot; Nov 8, 2025"
+                  data-id="Dicoding Indonesia &middot; 08 Nov 2025"
+                >
+                  Dicoding Indonesia &middot; 08 Nov 2025
                 </p>
-                <span class="cert-badge">Dicoding Certificate</span>
+              </div>
+              <div class="cert-actions">
+                <span class="tag" data-en="Database" data-id="Basis Data"
+                  >Database</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://dicoding.com/certificates/07Z6JQG9JXQR"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
               </div>
             </div>
 
-            <div class="cert-card">
-              <div class="cert-img-container">
-                <img
-                  src="./img/Profil-5.jpg"
-                  alt="Sertifikat Belajar Generative AI"
-                />
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
               </div>
-              <div class="cert-info">
-                <h3>Belajar Generative AI</h3>
-                <p>
-                  Dicoding Indonesia — Sertifikasi pemahaman fundamental
-                  arsitektur Generative AI, LLM, Diffusion Models, dan etika
-                  kecerdasan buatan.
+              <div class="cert-main">
+                <h3
+                  data-en="Learning the Basics of Data Science"
+                  data-id="Belajar Dasar Data Science"
+                >
+                  Belajar Dasar Data Science
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Dicoding Indonesia &middot; Nov 3, 2025"
+                  data-id="Dicoding Indonesia &middot; 03 Nov 2025"
+                >
+                  Dicoding Indonesia &middot; 03 Nov 2025
                 </p>
-                <span class="cert-badge">Dicoding Certificate</span>
+              </div>
+              <div class="cert-actions">
+                <span class="tag" data-en="Data Science" data-id="Sains Data"
+                  >Data Science</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://dicoding.com/certificates/6RPNG7OY8Z2M"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
               </div>
             </div>
 
-            <div class="cert-card">
-              <div class="cert-img-container">
-                <img
-                  src="./img/Banner.png"
-                  alt="Sertifikat GEMASTIK XVIII 2025"
-                />
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
               </div>
-              <div class="cert-info">
-                <h3>GEMASTIK XVIII 2025</h3>
-                <p>
-                  Kementerian Pendidikan Tinggi, Sains, dan Teknologi —
-                  Sertifikat partisipasi tingkat nasional dalam Divisi
-                  Pemrograman di Telkom University.
+              <div class="cert-main">
+                <h3
+                  data-en="Learning to Use Generative AI"
+                  data-id="Belajar Penggunaan Generative AI"
+                >
+                  Belajar Penggunaan Generative AI
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Dicoding Indonesia &middot; Oct 26, 2025"
+                  data-id="Dicoding Indonesia &middot; 26 Okt 2025"
+                >
+                  Dicoding Indonesia &middot; 26 Oct 2025
                 </p>
-                <span class="cert-badge">National Competition</span>
+              </div>
+              <div class="cert-actions">
+                <span class="tag" data-en="Generative AI" data-id="AI Generatif"
+                  >Generative AI</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://dicoding.com/certificates/NVP7JJ5NOXR0"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
+              </div>
+            </div>
+
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
+              </div>
+              <div class="cert-main">
+                <h3
+                  data-en="Prompt Engineering for Software Developers"
+                  data-id="Prompt Engineering untuk Software Developer"
+                >
+                  Prompt Engineering untuk Software Developer
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Dicoding Indonesia &middot; Oct 17, 2025"
+                  data-id="Dicoding Indonesia &middot; 17 Okt 2025"
+                >
+                  Dicoding Indonesia &middot; 17 Oct 2025
+                </p>
+              </div>
+              <div class="cert-actions">
+                <span class="tag" data-en="Generative AI" data-id="AI Generatif"
+                  >Generative AI</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://dicoding.com/certificates/KEXL27G40ZG2"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
+              </div>
+            </div>
+
+            <div class="cert-row">
+              <div class="cert-icon">
+                <span class="iconify" data-icon="mdi:certificate"></span>
+              </div>
+              <div class="cert-main">
+                <h3
+                  data-en="Learning Basic Data Visualization"
+                  data-id="Belajar Dasar Visualisasi Data"
+                >
+                  Belajar Dasar Visualisasi Data
+                </h3>
+                <p
+                  class="cert-meta"
+                  data-en="Universitas Al-Azhar Indonesia &middot; July 25, 2025"
+                  data-id="Universitas Al-Azhar Indonesia &middot; 25 Juli 2025"
+                >
+                  Universitas Al-Azhar Indonesia &middot; 25 Juli 2025
+                </p>
+              </div>
+              <div class="cert-actions">
+                <span
+                  class="tag"
+                  data-en="Data Visualization"
+                  data-id="Visualisasi Data"
+                  >Data Visualization</span
+                >
+                <a
+                  class="cert-link"
+                  href="https://drive.google.com/file/d/12LuRFfdg8I4vzRoe3b5D7Bqyz-IJvUnJ/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener"
+                  data-en="Verify ↗"
+                  data-id="Verifikasi ↗"
+                  >Verify ↗</a
+                >
               </div>
             </div>
           </div>
@@ -982,7 +1731,23 @@
         </div>
       </section>
     </main>
-
+    <div class="voyage-modal" id="voyageModal">
+      <div class="voyage-modal-box">
+        <button
+          class="voyage-modal-close"
+          id="voyageModalClose"
+          aria-label="Tutup"
+        >
+          ✕
+        </button>
+        <img id="voyageModalImg" src="" alt="" />
+        <div class="voyage-modal-text">
+          <span class="story-badge" id="voyageModalBadge"></span>
+          <h3 id="voyageModalTitle"></h3>
+          <p id="voyageModalDesc"></p>
+        </div>
+      </div>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
